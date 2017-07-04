@@ -3,13 +3,13 @@ package com.example.user.proxychat.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.modelos.Usuario;
@@ -136,7 +136,7 @@ public class LoginActivity extends AppCompatActivity {
      * login: metodo encargado de realizar el inicio de sesion utilizando los datos del formulario
      * @param v
      */
-    public void login(View v) {
+    public void login(final View v) {
 
         //Comprobar campos
         if (TextUtils.isEmpty(etUsuario.getText().toString())) {
@@ -215,10 +215,9 @@ public class LoginActivity extends AppCompatActivity {
                         else {
                             //Cierra el progressDialog
                             progressDialog.dismiss();
-                            //Muestra un Toast al usuario informando del error
-                            Toast.makeText(getApplicationContext(),
-                                    task.getException().getMessage(),
-                                    Toast.LENGTH_LONG).show();
+                            //Muestra un Snackbar al usuario informando del error
+                            Snackbar.make(v, task.getException().getMessage(),
+                                    Snackbar.LENGTH_LONG).show();
                         }
                     }
                 });

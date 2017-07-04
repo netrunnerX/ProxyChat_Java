@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -11,7 +12,6 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.user.proxychat.BuildConfig;
 import com.example.user.proxychat.R;
@@ -84,7 +84,7 @@ public class RegistroActivity extends AppCompatActivity {
      * registrar: metodo encargado de comprobar los campos e iniciar el registro del usuario
      * @param v
      */
-    public void registrar(View v) {
+    public void registrar(final View v) {
         //Comprueba que el campo de texto concuerde con el patron
         if (!etEmail.getText().toString().matches("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
             etEmail.setError("Debes introducir un email válido");
@@ -132,7 +132,7 @@ public class RegistroActivity extends AppCompatActivity {
                         }
                     }
                     //Si no se encontraron coincidencias, el metodo iniciarRegistro es ejecutado
-                    iniciarRegistro();
+                    iniciarRegistro(v);
                 }
 
                 @Override
@@ -147,7 +147,7 @@ public class RegistroActivity extends AppCompatActivity {
     /**
      * iniciarRegistro: metodo encargado de realizar el registro
      */
-    public void iniciarRegistro() {
+    public void iniciarRegistro(final View v) {
         //Crea un ProgressDialog, este se utiliza para mostrar un dialogo que informa al usuario de
         //que se esta realizando un proceso
         progressDialogRegistro = new ProgressDialog(this);
@@ -176,9 +176,9 @@ public class RegistroActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             //Cierra el ProgressDialog
                             progressDialogRegistro.dismiss();
-                            //Muestra un Toast informando al usuario del error
-                            Toast.makeText(getApplicationContext(), "Ocurrió un error al realizar el registro" + task.getException(),
-                                    Toast.LENGTH_LONG).show();
+                            //Muestra un Snackbar informando al usuario del error
+                            Snackbar.make(v, "Ocurrió un error al realizar el registro" + task.getException(),
+                                    Snackbar.LENGTH_LONG).show();
                         }
                         //Si fue un exito
                         else {
@@ -241,11 +241,11 @@ public class RegistroActivity extends AppCompatActivity {
                                                  */
                                                 @Override
                                                 public void onFailure(@NonNull Exception exception) {
-                                                    //Muestra un Toast informando al usuario del error
-                                                    Toast.makeText(getApplicationContext(),
+                                                    //Muestra un Snackbar informando al usuario del error
+                                                    Snackbar.make(v,
                                                             "Ocurrio un error al subir la imagen de perfil"
                                                             +" al servidor.",
-                                                            Toast.LENGTH_LONG).show();
+                                                            Snackbar.LENGTH_LONG).show();
                                                 }
                                             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                                 /**
@@ -288,22 +288,21 @@ public class RegistroActivity extends AppCompatActivity {
                                             //Cierra el ProgressDialog
                                             progressDialogRegistro.dismiss();
 
-                                            //Muestra un Toast informando al usuario del error
-                                            Toast.makeText(getApplicationContext(),
-                                                    "No se ha podido cargar la imagen: "
+                                            //Muestra un Snackbar informando al usuario del error
+                                            Snackbar.make(v, "No se ha podido cargar la imagen: "
                                                     + task.getException().getMessage(),
-                                                    Toast.LENGTH_LONG).show();
+                                                    Snackbar.LENGTH_LONG).show();
                                         }
 
                                     }
                                     else {
                                         //Cierra el ProgressDialog
                                         progressDialogRegistro.dismiss();
-                                        //Muestra un Toast informando al usuario del error
-                                        Toast.makeText(getApplicationContext(),
+                                        //Muestra un Snackbar informando al usuario del error
+                                        Snackbar.make(v,
                                                 "Ocurrió un error al actualizar la informacion del usuario: "
                                                 + task.getException().getMessage(),
-                                                Toast.LENGTH_LONG).show();
+                                                Snackbar.LENGTH_LONG).show();
                                     }
                                 }
                             });

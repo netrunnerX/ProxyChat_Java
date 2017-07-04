@@ -5,6 +5,7 @@ package com.example.user.proxychat.fragments;
  */
 
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.activities.MainActivity;
@@ -161,9 +161,9 @@ public class ProxyFragment extends Fragment {
         else {
             //Vacia el campo de texto
             etMensaje.setText("");
-            //Muestra un Toast informando al usuario del error
-            Toast.makeText(getContext(), "No se ha podido enviar el mensaje: usuariosCercanos null",
-                    Toast.LENGTH_SHORT).show();
+            //Muestra un Snackbar informando al usuario del error
+            Snackbar.make(getView(), "No se ha podido enviar el mensaje: usuariosCercanos null",
+                    Snackbar.LENGTH_SHORT).show();
         }
 
     }

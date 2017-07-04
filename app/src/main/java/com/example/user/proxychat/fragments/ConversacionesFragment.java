@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -18,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.user.proxychat.interfaces.OnItemClickListener;
 import com.example.user.proxychat.interfaces.OnItemLongClickListener;
@@ -418,8 +418,9 @@ public class ConversacionesFragment extends Fragment implements OnItemClickListe
                                      */
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        //Muestra un Toast informando al usuario de que la conversacion se ha eliminado
-                                        Toast.makeText(getContext(), "Conversacion eliminada", Toast.LENGTH_LONG).show();
+                                        //Muestra un Snackbar informando al usuario de que la conversacion se ha eliminado
+                                        Snackbar.make(getView(), "Conversacion eliminada",
+                                                Snackbar.LENGTH_LONG).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                             /**
@@ -428,8 +429,9 @@ public class ConversacionesFragment extends Fragment implements OnItemClickListe
                              */
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                //Muestra un Toast informando al usuario del error
-                                Toast.makeText(getContext(), "No se ha podido eliminar la conversacion", Toast.LENGTH_LONG).show();
+                                //Muestra un Snackbar informando al usuario del error
+                                Snackbar.make(getView(), "No se ha podido eliminar la conversacion",
+                                        Snackbar.LENGTH_LONG).show();
                             }
                         });
                         break;

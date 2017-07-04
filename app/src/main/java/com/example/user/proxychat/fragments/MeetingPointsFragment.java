@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.user.proxychat.interfaces.OnItemClickListener;
 import com.example.user.proxychat.interfaces.OnItemLongClickListener;
@@ -250,10 +250,10 @@ public class MeetingPointsFragment extends Fragment implements OnItemClickListen
                                      */
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        //Muestra un Toast informando al usuario de que el
+                                        //Muestra un Snackbar informando al usuario de que el
                                         //punto de encuentro ha sido eliminado
-                                        Toast.makeText(getContext(), "Punto de encuentro eliminado",
-                                                Toast.LENGTH_LONG).show();
+                                        Snackbar.make(getView(), "Punto de encuentro eliminado",
+                                                Snackbar.LENGTH_LONG).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                             /**
@@ -262,10 +262,10 @@ public class MeetingPointsFragment extends Fragment implements OnItemClickListen
                              */
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                //Muestra un Toast informando al usuario del error
-                                Toast.makeText(getContext(),
+                                //Muestra un Snackbar informando al usuario del error
+                                Snackbar.make(getView(),
                                         "No se ha podido eliminar el punto de encuentro",
-                                        Toast.LENGTH_LONG).show();
+                                        Snackbar.LENGTH_LONG).show();
                             }
                         });
                         break;

@@ -3,13 +3,13 @@ package com.example.user.proxychat.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -121,10 +121,10 @@ public class PerfilActivity extends AppCompatActivity {
                      */
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Muestra un Toast informando al usuaario del error
-                        Toast.makeText(getApplicationContext(),"Error al subir la imagen al servidor: "
+                        //Muestra un Snackbar informando al usuaario del error
+                        Snackbar.make(ivFotoPerfil,"Error al subir la imagen al servidor: "
                                         + e.getMessage(),
-                                Toast.LENGTH_LONG).show();
+                                Snackbar.LENGTH_LONG).show();
                     }
                 }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     /**
@@ -155,11 +155,11 @@ public class PerfilActivity extends AppCompatActivity {
                     }
                 });
             } catch (FileNotFoundException e) {
-                //Si no se encontro la imagen, se muestra un Toast informando del error al usuario
+                //Si no se encontro la imagen, se muestra un Snackbar informando del error al usuario
                 //y termina la ejecucion del metodo mediante return
-                Toast.makeText(getApplicationContext(),"No se ha podido cargar la imagen: "
+                Snackbar.make(ivFotoPerfil,"No se ha podido cargar la imagen: "
                         + e.getMessage(),
-                        Toast.LENGTH_LONG).show();
+                        Snackbar.LENGTH_LONG).show();
 
             }
 
