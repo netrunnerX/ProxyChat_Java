@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jul 04 17:59:16 CEST 2017
+#Tue Jul 04 20:33:23 CEST 2017
 210.set=ANDROID_RESOURCE
 282.file=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/resources-debug.ap_/res/color/common_google_signin_btn_tint.xml
 14.set=ANDROID_RESOURCE

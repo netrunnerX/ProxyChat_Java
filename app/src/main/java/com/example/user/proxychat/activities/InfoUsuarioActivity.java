@@ -4,6 +4,7 @@ package com.example.user.proxychat.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -94,7 +94,7 @@ public class InfoUsuarioActivity extends AppCompatActivity {
      * agregarContacto: metodo encargado de agregar el contacto a la lista de contactos
      * @param v
      */
-    public void agregarContacto(View v) {
+    public void agregarContacto(final View v) {
 
         //Realiza una consulta en la referencia de la base de datos donde se encuentran almacenados
         //los contactos del usuario para comprobar si el contacto ya existe en la lista
@@ -108,10 +108,10 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                 //Si el valor no es nulo, significa que el nodo del contacto existe en la lista,
                 //por lo que no es necesario agregarlo
                 if (bContacto != null) {
-                    //Muestra un Toast informando al usuario de que el contacto ya existe en la lista
+                    //Muestra un Snackbar informando al usuario de que el contacto ya existe en la lista
                     //de contactos
-                    Toast.makeText(getApplicationContext(),
-                            "El usuario ya existe en la lista de contactos", Toast.LENGTH_LONG).show();
+                    Snackbar.make(v, "El usuario ya existe en la lista de contactos",
+                            Snackbar.LENGTH_LONG).show();
                 }
                 //Si el contacto no existe en la lista
                 else {
@@ -124,10 +124,9 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                          */
                         @Override
                         public void onSuccess(Void aVoid) {
-                            //Muestra un Toast informando al usuario de que el contacto ha sido añadido
+                            //Muestra un Snackbar informando al usuario de que el contacto ha sido añadido
                             //a la lista de contactos
-                            Toast.makeText(getApplicationContext(),
-                                    "Contacto agregado", Toast.LENGTH_LONG).show();
+                            Snackbar.make(v, "Contacto agregado", Snackbar.LENGTH_LONG).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         /**
@@ -136,10 +135,9 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                          */
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //Muestra un Toast informando al usuario de que hubo un error en la
+                            //Muestra un Snackbar informando al usuario de que hubo un error en la
                             //operacion
-                            Toast.makeText(getApplicationContext(),
-                                    "Error al agregar el contacto", Toast.LENGTH_LONG).show();
+                            Snackbar.make(v, "Error al agregar el contacto", Snackbar.LENGTH_LONG).show();
                         }
                     });
                 }

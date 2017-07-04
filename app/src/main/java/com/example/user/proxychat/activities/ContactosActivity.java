@@ -3,6 +3,7 @@ package com.example.user.proxychat.activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.user.proxychat.interfaces.OnItemClickListener;
 import com.example.user.proxychat.R;
@@ -181,7 +181,7 @@ public class ContactosActivity extends AppCompatActivity implements OnItemClickL
      * @return
      */
     @Override
-    public boolean onLongClick(View view, final int position) {
+    public boolean onLongClick(final View view, final int position) {
         //Inicializa un array CharSequence que contiene la descripcion para cada opcion del menu contextual
         final CharSequence[] items = {"Eliminar contacto"};
 
@@ -211,9 +211,9 @@ public class ContactosActivity extends AppCompatActivity implements OnItemClickL
                                      */
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        //Muestra un Toast informando al usuario de que el contacto se ha eliminado
-                                        Toast.makeText(getApplicationContext(), "Contacto eliminado",
-                                                Toast.LENGTH_LONG).show();
+                                        //Muestra un Snackbar informando al usuario de que el contacto se ha eliminado
+                                        Snackbar.make(view, "Contacto eliminado",
+                                                Snackbar.LENGTH_LONG).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     /**
@@ -222,9 +222,10 @@ public class ContactosActivity extends AppCompatActivity implements OnItemClickL
                                      */
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        //Muestra un Toast informando al usuario del error
-                                        Toast.makeText(getApplicationContext(),
-                                                "No se ha podido eliminar el contacto", Toast.LENGTH_LONG).show();
+                                        //Muestra un Snackbar informando al usuario del error
+                                        Snackbar.make(view,
+                                                "No se ha podido eliminar el contacto",
+                                                Snackbar.LENGTH_LONG).show();
                                     }
                         });
                         break;

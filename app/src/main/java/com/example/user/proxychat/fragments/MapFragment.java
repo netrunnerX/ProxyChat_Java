@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -16,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.activities.InfoUsuarioActivity;
@@ -610,10 +610,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                                     //Cierra el dialogo de carga
                                     progressDialog.dismiss();
 
-                                    //Muestra un Toast informando al usuario de que el punto ha sido creado
-                                    Toast.makeText(getContext(),
+                                    //Muestra un Snackbar informando al usuario de que el punto ha sido creado
+                                    Snackbar.make(getView(),
                                             "Punto creado y agregado a la lista de puntos",
-                                            Toast.LENGTH_LONG).show();
+                                            Snackbar.LENGTH_LONG).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
 
@@ -630,8 +630,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                                     //Cierra el dialogo de carga
                                     progressDialog.dismiss();
 
-                                    //Muestra un Toast al usuario informando del error
-                                    Toast.makeText(getContext(), "Error al crear el punto de encuentro", Toast.LENGTH_LONG).show();
+                                    //Muestra un Snackbar al usuario informando del error
+                                    Snackbar.make(getView(), "Error al crear el punto de encuentro",
+                                            Snackbar.LENGTH_LONG).show();
 
 
                                 }
@@ -674,9 +675,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 
                 //Si el valor del objeto Boolean no es nulo
                 if (bContacto != null) {
-                    //Muestra un Toast informando al usuario de que el punto ya existe en su lista de puntos
-                    Toast.makeText(getContext(),
-                            "El punto ya existe en la lista de puntos", Toast.LENGTH_LONG).show();
+                    //Muestra un Snackbar informando al usuario de que el punto ya existe en su lista de puntos
+                    Snackbar.make(getView(),
+                            "El punto ya existe en la lista de puntos", Snackbar.LENGTH_LONG).show();
                 }
                 //Si el valor del objeto Boolean es nulo (Esto pasa si el nodo para el que se realiza la
                 // consulta no existe, por lo que en este caso el punto de encuentro no se encuentra
@@ -691,9 +692,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                          */
                         @Override
                         public void onSuccess(Void aVoid) {
-                            //Muestra un Toast informando al usuario de que el punto ha sido agregado
-                            Toast.makeText(getContext(),
-                                    "Punto agregado", Toast.LENGTH_LONG).show();
+                            //Muestra un Snackbar informando al usuario de que el punto ha sido agregado
+                            Snackbar.make(getView(),
+                                    "Punto agregado", Snackbar.LENGTH_LONG).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
 
@@ -703,9 +704,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                          */
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //Muestra un Toast informando al usuario del error
-                            Toast.makeText(getContext(),
-                                    "Error al agregar el punto", Toast.LENGTH_LONG).show();
+                            //Muestra un Snackbar informando al usuario del error
+                            Snackbar.make(getView(),
+                                    "Error al agregar el punto", Snackbar.LENGTH_LONG).show();
                         }
                     });
                 }
