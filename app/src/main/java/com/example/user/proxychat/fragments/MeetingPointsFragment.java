@@ -1,15 +1,19 @@
 package com.example.user.proxychat.fragments;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.proxychat.interfaces.OnItemClickListener;
 import com.example.user.proxychat.interfaces.OnItemLongClickListener;
@@ -19,6 +23,8 @@ import com.example.user.proxychat.activities.MeetingPointActivity;
 import com.example.user.proxychat.adaptadores.MeetingPointsAdaptador;
 import com.example.user.proxychat.modelos.MeetingPoint;
 import com.example.user.proxychat.modelos.Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -141,7 +147,13 @@ public class MeetingPointsFragment extends Fragment implements OnItemClickListen
 
                     @Override
                     public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                        //Elimina el id del punto de encuentro de la lista de puntos de encuentro
+                        meetingPoints.remove(dataSnapshot.getKey());
+                        //Actualiza el numero de puntos de encuentro
+                        tvNumeroMeetingPoints.setText("Puntos de encuentro: " + meetingPoints.size());
+                        //Notifica al adaptador que el conjunto de datos ha cambiado, de forma que este
+                        //se actualice
+                        meetingPointsAdaptador.notifyDataSetChanged();
                     }
 
                     @Override
@@ -207,7 +219,62 @@ public class MeetingPointsFragment extends Fragment implements OnItemClickListen
      * @return
      */
     @Override
-    public boolean onLongClick(View view, int position) {
-        return false;
+    public boolean onLongClick(View view, final int position) {
+
+        //Inicializa un array CharSequence que contiene la descripcion para cada opcion del menu contextual
+        final CharSequence[] items = {"Eliminar Punto de Encuentro"};
+
+        //Crea un constructor de dialogos
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        //Establece el titulo del dialogo
+        builder.setTitle("Opciones");
+        //Configura el dialogo con los items (opciones) que tendra, tambien se añade un escuchador
+        //que recibira los eventos de click en cada una de las opciones del menu contextual
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                switch (item) {
+                    case 0:
+                        //Elimina de la base de datos el nodo correspondiente al punto de encuentro en la lista
+                        //de puntos de encuentro del usuario,
+                        //se añaden ademas escuchadores que realizaran acciones dependiendo de si la operacion
+                        //fue o no un exito
+                        databaseReference.child("contactos").child("usuarios").child(usuario.getId())
+                                .child("meeting_points").child(meetingPoints.get(position)).removeValue()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    /**
+                                     * onSuccess: metodo que se ejecuta si la operacion fue un exito
+                                     * @param aVoid
+                                     */
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        //Muestra un Toast informando al usuario de que el
+                                        //punto de encuentro ha sido eliminado
+                                        Toast.makeText(getContext(), "Punto de encuentro eliminado",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            /**
+                             * onFailure: metodo que se ejecuta si la operacion fallo
+                             * @param e
+                             */
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                //Muestra un Toast informando al usuario del error
+                                Toast.makeText(getContext(),
+                                        "No se ha podido eliminar el punto de encuentro",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        break;
+                }
+            }
+        });
+
+        //Muestra el dialogo
+        builder.show();
+        return true;
     }
 }

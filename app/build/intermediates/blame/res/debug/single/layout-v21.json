@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout-v21/notification_template_icon_group.xml"
+    }
+]
