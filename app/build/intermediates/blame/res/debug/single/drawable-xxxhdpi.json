@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_action_tick.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xxxhdpi/ic_action_tick.png"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_action_gmail.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xxxhdpi/ic_action_gmail.png"
     },
@@ -42,5 +46,9 @@
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_email.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xxxhdpi/ic_email.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xxxhdpi/ic_action_cancel.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xxxhdpi/ic_action_cancel.png"
     }
 ]
