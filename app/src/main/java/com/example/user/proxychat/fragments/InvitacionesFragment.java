@@ -86,8 +86,8 @@ public class InvitacionesFragment extends Fragment {
     public void iniciarEscuchadorInvitaciones() {
 
         databaseReference.child("invitaciones")
-                .child(usuario.getId())
                 .child("usuarios")
+                .child(usuario.getId())
                 .addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

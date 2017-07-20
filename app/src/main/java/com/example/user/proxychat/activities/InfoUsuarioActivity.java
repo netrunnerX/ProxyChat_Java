@@ -111,8 +111,8 @@ public class InfoUsuarioActivity extends AppCompatActivity {
 
                     databaseReference.child("invitaciones")
                             .child("usuarios")
-                            .child(usuario.getId())
-                            .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            .child(contacto.getId())
+                            .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Boolean b = dataSnapshot.getValue(Boolean.TYPE);
@@ -121,8 +121,8 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                                 //Almacena en la base de datos el nuevo contacto
                                 databaseReference.child("invitaciones")
                                         .child("usuarios")
-                                        .child(usuario.getId())
                                         .child(contacto.getId())
+                                        .child(usuario.getId())
                                         .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     /**
                                      * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente

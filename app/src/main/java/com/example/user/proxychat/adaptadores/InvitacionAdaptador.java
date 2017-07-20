@@ -109,6 +109,11 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
                                 Snackbar.make(view,
                                         "Contacto agregado a la lista de contactos",
                                         Snackbar.LENGTH_LONG).show();
+
+                                databaseReference.child("invitaciones")
+                                        .child("usuarios")
+                                        .child(idUsuario)
+                                        .child(invitaciones.get(position)).removeValue();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -118,6 +123,7 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
                                         Snackbar.LENGTH_LONG).show();
                             }
                 });
+
             }
         });
 
@@ -162,7 +168,7 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
             //Instancia el CardView
             cardView = (CardView) v.findViewById(R.id.cardViewInvitaciones);
             //Instancia el TextView que muestra el nombre del emisor
-            tvNombre = (TextView) v.findViewById(R.id.tvNombre);
+            tvNombre = (TextView) v.findViewById(R.id.tvNombreContacto);
 
             fotoPerfil = (ImageView) v.findViewById(R.id.ivFotoPerfil);
 
