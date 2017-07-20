@@ -2,6 +2,8 @@ package com.example.user.proxychat.adaptadores;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.modelos.Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,13 +36,15 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
 
     private List<String> invitaciones;
     private Context context;
+    private String idUsuario;
 
     /**
      * Constructor por defecto
      * @param invitaciones lista de invitaciones
      */
-    public InvitacionAdaptador(Context context, List<String> invitaciones){
+    public InvitacionAdaptador(Context context, String idUsuario, List<String> invitaciones){
         this.context = context;
+        this.idUsuario = idUsuario;
         this.invitaciones = invitaciones;
     }
 
@@ -62,11 +68,11 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
      * @param position posicion en el RecyclerView donde mostrara el item
      */
     @Override
-    public void onBindViewHolder(final InvitacionAdaptador.InvitacionViewHolder holder, int position) {
+    public void onBindViewHolder(final InvitacionAdaptador.InvitacionViewHolder holder, final int position) {
 
-        String idContacto = invitaciones.get(position);
+        final String idContacto = invitaciones.get(position);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
         databaseReference.child("usuarios").child(idContacto).addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,11 +95,29 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
             }
         });
 
-        //TODO: implementar codigo que se dispara al pulsar los botones de aceptar y cancelar
         holder.btAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(final View view) {
+                databaseReference.child("contactos")
+                        .child("usuarios")
+                        .child(idUsuario)
+                        .child("usuarios")
+                        .child(invitaciones.get(position)).setValue(true)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Snackbar.make(view,
+                                        "Contacto agregado a la lista de contactos",
+                                        Snackbar.LENGTH_LONG).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Snackbar.make(view,
+                                        "No se ha podido agregar el contacto",
+                                        Snackbar.LENGTH_LONG).show();
+                            }
+                });
             }
         });
 
