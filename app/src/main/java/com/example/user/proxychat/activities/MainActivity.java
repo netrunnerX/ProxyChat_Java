@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.user.proxychat.fragments.ConversacionesFragment;
+import com.example.user.proxychat.fragments.InvitacionesFragment;
 import com.example.user.proxychat.fragments.MapFragment;
 import com.example.user.proxychat.fragments.MeetingPointsFragment;
 import com.example.user.proxychat.fragments.ProxyFragment;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private ProxyFragment proxyFragment;
     private MeetingPointsFragment meetingPointsFragment;
     private ConversacionesFragment conversacionesFragment;
+    private InvitacionesFragment invitacionesFragment;
 
 
     @Override
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Configura el ViewPager con el SectionsPagerAdapter
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         //Crea un TabLayout y lo configura con el ViewPager
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_location_on);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_rss_feed);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_message);
+        tabLayout.getTabAt(4).setIcon(R.drawable.ic_action_add);
 
     }
 
@@ -183,6 +186,10 @@ public class MainActivity extends AppCompatActivity {
                     //Devuelve un ConversacionesFragment que muestra la lista de conversaciones
                     conversacionesFragment = new ConversacionesFragment();
                     return conversacionesFragment;
+                case 4:
+                    //Devuelve un InvitacionesFragment que muestra la lista de invitaciones
+                    invitacionesFragment = new InvitacionesFragment();
+                    return invitacionesFragment;
                 default:
                     return null;
             }
@@ -194,8 +201,8 @@ public class MainActivity extends AppCompatActivity {
          */
         @Override
         public int getCount() {
-            //Muestra 4 pestañas en total.
-            return 4;
+            //Muestra 5 pestañas en total.
+            return 5;
         }
 
         /**
@@ -215,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
                     //return titulo de pestaña 2
                 case 3:
                     //return titulo de pestaña 3
+                case 4:
+                    //return titulo de pestaña 4
             }
             //Se devuelve siempre null, de este modo no se muestra el titulo y solo aparece el icono en la pestaña
             return null;
