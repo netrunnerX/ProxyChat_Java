@@ -1,13 +1,35 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:background="#000"
+android:orientation="vertical"
+tools:context="com.example.user.proxychat.fragments.InvitacionesFragment">
+
+<TextView
+    android:id="@+id/tvNumeroInvitaciones"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:text="Invitaciones: 0"
+    android:textSize="20dp"
+    android:textColor="#fff"/>
+
+<android.support.v7.widget.RecyclerView
+    android:id="@+id/recyclerviewInvitaciones"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.proxychat.fragments.InvitacionesFragment">
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    tools:listitem="@layout/card_view_invitaciones"></android.support.v7.widget.RecyclerView>
 
-</FrameLayout>
+
+
+</LinearLayout>

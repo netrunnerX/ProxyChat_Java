@@ -67,10 +67,10 @@ public class InvitacionesFragment extends Fragment {
         tvNumeroInvitaciones = (TextView) getActivity().findViewById(R.id.tvNumeroInvitaciones);
 
         //Crea un adaptador de invitaciones
-        invitacionAdaptador = new InvitacionAdaptador(getContext(), invitaciones);
+        invitacionAdaptador = new InvitacionAdaptador(getContext(), usuario.getId(), invitaciones);
 
         //Inicializa el RecyclerView
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewInvitaciones);
 
         //Crea un gestor LinearLayout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
