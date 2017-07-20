@@ -81,13 +81,6 @@ public class InfoUsuarioActivity extends AppCompatActivity {
             }
         });
 
-        AppCompatButton botonEnviarMensajeUsuario = (AppCompatButton) findViewById(R.id.botonEnviarMensajeUsuario);
-        botonEnviarMensajeUsuario.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                iniciarChat(v);
-            }
-        });
     }
 
     /**
@@ -115,31 +108,60 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                 }
                 //Si el contacto no existe en la lista
                 else {
-                    //Almacena en la base de datos el nuevo contacto
-                    databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("usuarios")
-                            .child(contacto.getId()).setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        /**
-                         * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente
-                         * @param aVoid
-                         */
+
+                    databaseReference.child("invitaciones")
+                            .child("usuarios")
+                            .child(contacto.getId())
+                            .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onSuccess(Void aVoid) {
-                            //Muestra un Snackbar informando al usuario de que el contacto ha sido añadido
-                            //a la lista de contactos
-                            Snackbar.make(v, "Contacto agregado", Snackbar.LENGTH_LONG).show();
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Boolean b = dataSnapshot.getValue(Boolean.TYPE);
+
+                            if (b == null) {
+                                //Almacena en la base de datos el nuevo contacto
+                                databaseReference.child("invitaciones")
+                                        .child("usuarios")
+                                        .child(contacto.getId())
+                                        .child(usuario.getId())
+                                        .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    /**
+                                     * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente
+                                     * @param aVoid
+                                     */
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        //Muestra un Snackbar informando al usuario de que el contacto h
+                                        // a sido añadido
+                                        //a la lista de contactos
+                                        Snackbar.make(v, "Petición de contacto enviada",
+                                                Snackbar.LENGTH_LONG).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    /**
+                                     * onFailure: se ejecuta si la operacion fallo
+                                     * @param e
+                                     */
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        //Muestra un Snackbar informando al usuario de que hubo un error en la
+                                        //operacion
+                                        Snackbar.make(v, "Error al enviar la petición de contacto",
+                                                Snackbar.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                            else {
+                                Snackbar.make(v, "Ya has enviado una petición de contacto al usuario",
+                                        Snackbar.LENGTH_LONG).show();
+                            }
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        /**
-                         * onFailure: se ejecuta si la operacion fallo
-                         * @param e
-                         */
+
                         @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //Muestra un Snackbar informando al usuario de que hubo un error en la
-                            //operacion
-                            Snackbar.make(v, "Error al agregar el contacto", Snackbar.LENGTH_LONG).show();
+                        public void onCancelled(DatabaseError databaseError) {
+
                         }
                     });
+
                 }
             }
 
@@ -151,24 +173,6 @@ public class InfoUsuarioActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * iniciarChat: metodo encargado de iniciar la actividad de chat con el contacto
-     * @param v
-     */
-    public void iniciarChat(View v) {
-        //Crea un bundle
-        Bundle bundle = new Bundle();
-        //Añade al bundle el objeto Usuario con los datos del contacto
-        bundle.putSerializable("contacto", contacto);
-        //Añade al bundle el objeto Usuario con los datos del usuario
-        bundle.putSerializable("usuario", usuario);
-        //Crea un Intent utilizado para iniciar la nueva actividad
-        Intent intent = new Intent(this, ChatActivity.class);
-        //Añade el bundle al Intent
-        intent.putExtras(bundle);
-        //Inicia la actividad de chat a partir del intent
-        startActivity(intent);
-    }
 
     /**
      * onOptionsItemSelected: en este metodo se realizan los acciones para cada item de menu cuando estos
