@@ -74,6 +74,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     private Map<String, MeetingPoint> mPointsCercanosPerfil;
     private final int RADIO_CONSULTA = 10;
     private final int RADIO_CIRCULO = 10000;
+    private boolean invisible = false;
 
     public MapFragment() {
 
@@ -194,8 +195,10 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
      */
     public void actualizarUbicacion() {
 
-        //Almacena la localizacion del usuario en la base de datos
-        geoFireUsuarios.setLocation(usuario.getId(), geoLocation);
+        if (!invisible) {
+            //Almacena la localizacion del usuario en la base de datos
+            geoFireUsuarios.setLocation(usuario.getId(), geoLocation);
+        }
 
         //Dibuja el circulo que representa el radio de alcance en el mapa, tomando como centro
         //la nueva localizacion
@@ -283,7 +286,8 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
                             //Añade al mapa un marcador ubicado en la localizacion del usuario encontrado
                             Marker marker = gMap.addMarker(new MarkerOptions().title(usrProxy.getApodo())
                                     .position(new LatLng(location.latitude, location.longitude))
-                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                                    .visible(invisible?false:true));
                             marker.setTag("u:" + usrProxy.getId());
 
                             //Añade el objeto Usuario al map de usuarios cercanos
@@ -531,6 +535,111 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
     @Override
     public void onMapLongClick(final LatLng latLng) {
 
+        //Inicializa un array CharSequence que contiene la descripcion para cada opcion del menu contextual
+        final CharSequence[] items = new CharSequence[2];
+
+        items[0] = "Crear punto de encuentro";
+        if (invisible) {
+            items[1] = "Desactivar modo invisible";
+        }
+        else {
+            items[1] = "Activar modo invisible";
+        }
+
+        //Crea un constructor de dialogos
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        //Establece el titulo del dialogo
+        builder.setTitle("Opciones");
+        //Configura el dialogo con los items (opciones) que tendra, tambien se añade un escuchador
+        //que recibira los eventos de click en cada una de las opciones del menu contextual
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                switch (item) {
+                    case 0:
+                        crearMeetingPoint(latLng);
+                        break;
+                    case 1:
+                        cambiarModoInvisible();
+                        break;
+                }
+            }
+        });
+
+        //Muestra el dialogo
+        builder.show();
+
+
+    }
+
+
+    /**
+     * agregarMeetingPoint: metoto encargado de agregar el punto de encuentro a la lista de puntos del usuario
+     * @param keyMeetingPoint id del punto de encuentro
+     */
+    public void agregarMeetingPoint(final String keyMeetingPoint) {
+
+        //Realiza una consulta a la base de datos para comprobar si el punto de encuentro ya se encuentra
+        //en la lista de puntos del usuario
+        databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("meeting_points")
+                .child(keyMeetingPoint).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                //Obtiene el valor booleano que contiene el nodo que hace referencia al punto de encuentro
+                Boolean bContacto = dataSnapshot.getValue(Boolean.class);
+
+                //Si el valor del objeto Boolean no es nulo
+                if (bContacto != null) {
+                    //Muestra un Snackbar informando al usuario de que el punto ya existe en su lista de puntos
+                    Snackbar.make(getView(),
+                            "El punto ya existe en la lista de puntos", Snackbar.LENGTH_LONG).show();
+                }
+                //Si el valor del objeto Boolean es nulo (Esto pasa si el nodo para el que se realiza la
+                // consulta no existe, por lo que en este caso el punto de encuentro no se encuentra
+                // en la lista de puntos del usuario)
+                else {
+                    //Añade el punto de encuentro a la lista de puntos del usuario en la base de datos
+                    databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("meeting_points")
+                            .child(keyMeetingPoint).setValue(false).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        /**
+                         * onSuccess: metodo que se ejecuta si la operacion fue un exito
+                         * @param aVoid
+                         */
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //Muestra un Snackbar informando al usuario de que el punto ha sido agregado
+                            Snackbar.make(getView(),
+                                    "Punto agregado", Snackbar.LENGTH_LONG).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+
+                        /**
+                         * onFailure: metodo que se ejecuta si la operacion fallo
+                         * @param e
+                         */
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //Muestra un Snackbar informando al usuario del error
+                            Snackbar.make(getView(),
+                                    "Error al agregar el punto", Snackbar.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public void crearMeetingPoint(LatLng latLng) {
+        //**********************************************
         //Crea una vista cargando en esta el layout del dialogo para crear un punto de encuentro
         View v = getActivity().getLayoutInflater().inflate(R.layout.dialogo_meetingpoint, null);
 
@@ -656,68 +765,44 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
         alertDialog.show();
     }
 
+    public void cambiarModoInvisible() {
+        if (invisible) {
+            invisible = false;
+            //Itera sobre el mapa de marcadores mostrandolos en el mapa
+            for (Map.Entry<String, Marker> entry : usuariosCercanosMark.entrySet()) {
+                entry.getValue().setVisible(true);
+            }
+            Snackbar.make(getView(), "Modo invisible desactivado",
+                    Snackbar.LENGTH_LONG).show();
+        }
+        else {
+            invisible = true;
 
-    /**
-     * agregarMeetingPoint: metoto encargado de agregar el punto de encuentro a la lista de puntos del usuario
-     * @param keyMeetingPoint id del punto de encuentro
-     */
-    public void agregarMeetingPoint(final String keyMeetingPoint) {
-
-        //Realiza una consulta a la base de datos para comprobar si el punto de encuentro ya se encuentra
-        //en la lista de puntos del usuario
-        databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("meeting_points")
-                .child(keyMeetingPoint).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                //Obtiene el valor booleano que contiene el nodo que hace referencia al punto de encuentro
-                Boolean bContacto = dataSnapshot.getValue(Boolean.class);
-
-                //Si el valor del objeto Boolean no es nulo
-                if (bContacto != null) {
-                    //Muestra un Snackbar informando al usuario de que el punto ya existe en su lista de puntos
-                    Snackbar.make(getView(),
-                            "El punto ya existe en la lista de puntos", Snackbar.LENGTH_LONG).show();
-                }
-                //Si el valor del objeto Boolean es nulo (Esto pasa si el nodo para el que se realiza la
-                // consulta no existe, por lo que en este caso el punto de encuentro no se encuentra
-                // en la lista de puntos del usuario)
-                else {
-                    //Añade el punto de encuentro a la lista de puntos del usuario en la base de datos
-                    databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("meeting_points")
-                            .child(keyMeetingPoint).setValue(false).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        /**
-                         * onSuccess: metodo que se ejecuta si la operacion fue un exito
-                         * @param aVoid
-                         */
+            //Elimina la localizacion del usuario de la base de datos
+            databaseReference.child("locations")
+                    .child("usuarios")
+                    .child(usuario.getId()).removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            //Muestra un Snackbar informando al usuario de que el punto ha sido agregado
-                            Snackbar.make(getView(),
-                                    "Punto agregado", Snackbar.LENGTH_LONG).show();
+                            //Itera sobre el mapa de marcadores ocultandolos del mapa
+                            for (Map.Entry<String, Marker> entry : usuariosCercanosMark.entrySet()) {
+                                entry.getValue().setVisible(false);
+                            }
+                            Snackbar.make(getView(), "Modo invisible activado",
+                                    Snackbar.LENGTH_LONG).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    invisible = false;
 
-                        /**
-                         * onFailure: metodo que se ejecuta si la operacion fallo
-                         * @param e
-                         */
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //Muestra un Snackbar informando al usuario del error
-                            Snackbar.make(getView(),
-                                    "Error al agregar el punto", Snackbar.LENGTH_LONG).show();
-                        }
-                    });
+                    Snackbar.make(getView(), "No se ha podido activar el modo invisible",
+                            Snackbar.LENGTH_LONG).show();
                 }
-            }
+            });
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        }
     }
 
     /**
