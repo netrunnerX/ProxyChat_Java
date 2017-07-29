@@ -153,6 +153,19 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 return true;
+
+            case R.id.action_bloqueados:
+
+                //Crea un bundle
+                Bundle bundle = new Bundle();
+                //Añade el objeto Usuario con los datos del usuario al bundle
+                bundle.putSerializable("usuario", usuario);
+                //Crea un Intent utilizado para iniciar la actividad de Perfil
+                Intent intent = new Intent(MainActivity.this, BloqueadosActivity.class);
+                //Añade el bundle al Intent
+                intent.putExtras(bundle);
+                //Inicia la actividad
+                startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

@@ -9,11 +9,11 @@
         android:title="@string/action_perfil"
         app:showAsAction="never"/>
 
-    <!--<item
-        android:id="@+id/action_settings"
+    <item
+        android:id="@+id/action_bloqueados"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />-->
+        android:title="Lista Bloqueados"
+        app:showAsAction="never" />
 
 
 </menu>

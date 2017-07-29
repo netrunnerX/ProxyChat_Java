@@ -9,25 +9,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000"
     android:orientation="vertical"
-    tools:context="com.example.user.proxychat.activities.MainActivity">
+    tools:context="com.example.user.proxychat.activities.BloqueadosActivity">
 
     <TextView
-        android:id="@+id/tvNumeroContactos"
+        android:id="@+id/tvNumeroBloqueados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
-        android:text="Contactos: 0"
+        android:text="Bloqeuados: 0"
         android:textSize="20dp"
         android:textColor="#fff"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerviewContactos"
+        android:id="@+id/recyclerviewBloqueados"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
 
-        tools:listitem="@layout/card_view_contactos"></android.support.v7.widget.RecyclerView>
+        tools:listitem="@layout/card_view_bloqueados"></android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

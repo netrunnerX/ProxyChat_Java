@@ -98,6 +98,7 @@
             android:label="@string/title_activity_meeting_point"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.user.proxychat.activities.BloqueadosActivity" />
         <!--
          FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"

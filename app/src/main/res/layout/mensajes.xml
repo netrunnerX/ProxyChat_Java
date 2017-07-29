@@ -32,7 +32,7 @@
             android:layout_alignParentRight="true"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:background="@drawable/boton_circular"
+            android:background="@drawable/boton_circular_verde"
             android:src="@drawable/ic_send"
             />
 
