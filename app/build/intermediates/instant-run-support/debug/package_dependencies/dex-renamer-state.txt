@@ -1,4 +1,4 @@
-#Thu Jul 27 01:01:49 CEST 2017
+#Sat Jul 29 12:07:49 CEST 2017
 file.9=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_15f5dcc833c035cd3f5b381e5a5373aa809f41eb/classes.dex
 base.10=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_40071ad5711e382fd9013cf0a18bf9c4e54b5a23
 file.8=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c5f11d8dbb67171bdbd9366c7f626d9b5a2d3430/classes.dex

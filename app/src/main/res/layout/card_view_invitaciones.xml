@@ -52,7 +52,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="5dp"
                     android:src="@drawable/ic_action_tick"
-                    android:background="@drawable/boton_circular"/>
+                    android:background="@drawable/boton_circular_verde"/>
 
                 <ImageButton
                     android:id="@+id/btCancelar"

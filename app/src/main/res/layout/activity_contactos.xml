@@ -30,6 +30,4 @@
 
         tools:listitem="@layout/card_view_contactos"></android.support.v7.widget.RecyclerView>
 
-
-
 </LinearLayout>

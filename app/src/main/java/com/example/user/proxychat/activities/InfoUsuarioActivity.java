@@ -89,70 +89,91 @@ public class InfoUsuarioActivity extends AppCompatActivity {
      */
     public void agregarContacto(final View v) {
 
-        //Realiza una consulta en la referencia de la base de datos donde se encuentran almacenados
-        //los contactos del usuario para comprobar si el contacto ya existe en la lista
-        databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("usuarios")
-                .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+        //Realiza una consulta para comprobar si el usuario nos ha bloqueado
+        databaseReference.child("contactos")
+                .child("usuarios")
+                .child(contacto.getId())
+                .child("bloqueados")
+                .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //Obtiene el valor booleano que contiene el nodo contacto
-                Boolean bContacto = dataSnapshot.getValue(Boolean.class);
+                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
 
-                //Si el valor no es nulo, significa que el nodo del contacto existe en la lista,
-                //por lo que no es necesario agregarlo
-                if (bContacto != null) {
-                    //Muestra un Snackbar informando al usuario de que el contacto ya existe en la lista
-                    //de contactos
-                    Snackbar.make(v, "El usuario ya existe en la lista de contactos",
-                            Snackbar.LENGTH_LONG).show();
-                }
-                //Si el contacto no existe en la lista
-                else {
-
-                    databaseReference.child("invitaciones")
-                            .child("usuarios")
-                            .child(contacto.getId())
-                            .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                //Si no estamos en la lista de bloqueados
+                if (bBloqueado == null) {
+                    //Realiza una consulta en la referencia de la base de datos donde se encuentran almacenados
+                    //los contactos del usuario para comprobar si el contacto ya existe en la lista
+                    databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("usuarios")
+                            .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Boolean b = dataSnapshot.getValue(Boolean.TYPE);
+                            //Obtiene el valor booleano que contiene el nodo contacto
+                            Boolean bContacto = dataSnapshot.getValue(Boolean.class);
 
-                            if (b == null) {
-                                //Almacena en la base de datos el nuevo contacto
+                            //Si el valor no es nulo, significa que el nodo del contacto existe en la lista,
+                            //por lo que no es necesario agregarlo
+                            if (bContacto != null) {
+                                //Muestra un Snackbar informando al usuario de que el contacto ya existe en la lista
+                                //de contactos
+                                Snackbar.make(v, "El usuario ya existe en la lista de contactos",
+                                        Snackbar.LENGTH_LONG).show();
+                            }
+                            //Si el contacto no existe en la lista
+                            else {
+
                                 databaseReference.child("invitaciones")
                                         .child("usuarios")
                                         .child(contacto.getId())
-                                        .child(usuario.getId())
-                                        .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    /**
-                                     * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente
-                                     * @param aVoid
-                                     */
+                                        .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
-                                    public void onSuccess(Void aVoid) {
-                                        //Muestra un Snackbar informando al usuario de que el contacto h
-                                        // a sido añadido
-                                        //a la lista de contactos
-                                        Snackbar.make(v, "Petición de contacto enviada",
-                                                Snackbar.LENGTH_LONG).show();
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        Boolean b = dataSnapshot.getValue(Boolean.TYPE);
+
+                                        if (b == null) {
+                                            //Almacena en la base de datos el nuevo contacto
+                                            databaseReference.child("invitaciones")
+                                                    .child("usuarios")
+                                                    .child(contacto.getId())
+                                                    .child(usuario.getId())
+                                                    .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                /**
+                                                 * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente
+                                                 * @param aVoid
+                                                 */
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    //Muestra un Snackbar informando al usuario de que el contacto h
+                                                    // a sido añadido
+                                                    //a la lista de contactos
+                                                    Snackbar.make(v, "Petición de contacto enviada",
+                                                            Snackbar.LENGTH_LONG).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                /**
+                                                 * onFailure: se ejecuta si la operacion fallo
+                                                 * @param e
+                                                 */
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    //Muestra un Snackbar informando al usuario de que hubo un error en la
+                                                    //operacion
+                                                    Snackbar.make(v, "Error al enviar la petición de contacto",
+                                                            Snackbar.LENGTH_LONG).show();
+                                                }
+                                            });
+                                        }
+                                        else {
+                                            Snackbar.make(v, "Ya has enviado una petición de contacto al usuario",
+                                                    Snackbar.LENGTH_LONG).show();
+                                        }
                                     }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    /**
-                                     * onFailure: se ejecuta si la operacion fallo
-                                     * @param e
-                                     */
+
                                     @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        //Muestra un Snackbar informando al usuario de que hubo un error en la
-                                        //operacion
-                                        Snackbar.make(v, "Error al enviar la petición de contacto",
-                                                Snackbar.LENGTH_LONG).show();
+                                    public void onCancelled(DatabaseError databaseError) {
+
                                     }
                                 });
-                            }
-                            else {
-                                Snackbar.make(v, "Ya has enviado una petición de contacto al usuario",
-                                        Snackbar.LENGTH_LONG).show();
+
                             }
                         }
 
@@ -161,7 +182,10 @@ public class InfoUsuarioActivity extends AppCompatActivity {
 
                         }
                     });
-
+                }
+                else {
+                    Snackbar.make(v, "No se puede enviar una peticion a este contacto",
+                            Snackbar.LENGTH_LONG).show();
                 }
             }
 
