@@ -1,10 +1,13 @@
 package com.example.user.proxychat.activities;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -14,11 +17,14 @@ import com.example.user.proxychat.R;
 import com.example.user.proxychat.adaptadores.MensajeAdaptador;
 import com.example.user.proxychat.modelos.Mensaje;
 import com.example.user.proxychat.modelos.Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -81,7 +87,6 @@ public class ChatActivity extends AppCompatActivity {
 
         //Obtiene una intancia del campo de texto
         etMensaje = (EditText)findViewById(R.id.etMensaje);
-
         //Obtiene una instancia para el boton de enviar
         botonEnviar = (ImageButton) findViewById(R.id.botonEnviarProxy);
         //Configura un escuchador de clicks en el boton
@@ -96,6 +101,8 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        habilitarComponentes(false);
+        iniciarEscuchadoresBloqueado();
 
     }
 
@@ -198,6 +205,67 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    public void iniciarEscuchadoresBloqueado() {
+        databaseReference.child("contactos")
+                .child("usuarios")
+                .child(usuario.getId())
+                .child("bloqueados")
+                .child(contacto.getId()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
+
+                        if (bBloqueado == null)
+                            habilitarComponentes(true);
+                        else
+                            habilitarComponentes(false);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+        });
+
+        databaseReference.child("contactos")
+                .child("usuarios")
+                .child(contacto.getId())
+                .child("bloqueados")
+                .child(usuario.getId()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
+
+                if (bBloqueado == null)
+                    habilitarComponentes(true);
+                else
+                    habilitarComponentes(false);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public void habilitarComponentes(boolean estado) {
+        etMensaje.setEnabled(estado);
+        botonEnviar.setEnabled(estado);
+    }
+
+    /**
+     * onCreateOptionsMenu: este metodo se redefine para crear un menu de opciones
+     * @param menu
+     * @return
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_chat, menu);
+        return true;
+    }
+
     /**
      * onOptionsItemSelected: en este metodo se realizan los acciones para cada item de menu cuando estos
      * son seleccionados
@@ -213,6 +281,52 @@ public class ChatActivity extends AppCompatActivity {
                 //Termina la actividad
                 finish();
                 return true;
+
+            case R.id.action_bloquear:
+                databaseReference.child("contactos")
+                        .child("usuarios")
+                        .child(usuario.getId())
+                        .child("bloqueados")
+                        .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
+
+                                if (bBloqueado == null) {
+                                    databaseReference.child("contactos")
+                                            .child("usuarios")
+                                            .child(usuario.getId())
+                                            .child("bloqueados")
+                                            .child(contacto.getId())
+                                            .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Snackbar.make(etMensaje,
+                                                            "Contacto bloqueado",
+                                                            Snackbar.LENGTH_LONG).show();
+                                                }
+                                            }).addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Snackbar.make(etMensaje,
+                                                            "No se ha podido bloquear al contacto",
+                                                            Snackbar.LENGTH_LONG).show();
+                                                }
+                                    });
+                                }
+                                else {
+                                    Snackbar.make(etMensaje,
+                                            "El contacto ya se encuentra bloqueado",
+                                            Snackbar.LENGTH_LONG).show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                });
+
             default:
                 return super.onOptionsItemSelected(item);
         }

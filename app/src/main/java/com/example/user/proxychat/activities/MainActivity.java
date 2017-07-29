@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 //Inicia la actividad
                 startActivity(intent);
+
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
