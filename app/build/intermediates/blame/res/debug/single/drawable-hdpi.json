@@ -44,6 +44,10 @@
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-hdpi/ic_email.png"
     },
     {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_undo.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-hdpi/ic_undo.png"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_sms.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-hdpi/ic_sms.png"
     },

@@ -215,8 +215,28 @@ public class ChatActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
 
-                        if (bBloqueado == null)
-                            habilitarComponentes(true);
+                        if (bBloqueado == null) {
+                            databaseReference.child("contactos")
+                                    .child("usuarios")
+                                    .child(contacto.getId())
+                                    .child("bloqueados")
+                                    .child(usuario.getId()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
+
+                                    if (bBloqueado == null)
+                                        habilitarComponentes(true);
+                                    else
+                                        habilitarComponentes(false);
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+                        }
                         else
                             habilitarComponentes(false);
                     }
@@ -227,26 +247,6 @@ public class ChatActivity extends AppCompatActivity {
                     }
         });
 
-        databaseReference.child("contactos")
-                .child("usuarios")
-                .child(contacto.getId())
-                .child("bloqueados")
-                .child(usuario.getId()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
-
-                if (bBloqueado == null)
-                    habilitarComponentes(true);
-                else
-                    habilitarComponentes(false);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
 
     public void habilitarComponentes(boolean estado) {

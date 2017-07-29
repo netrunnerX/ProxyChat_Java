@@ -1,4 +1,4 @@
-#Thu Jul 27 03:17:42 CEST 2017
+#Sat Jul 29 12:07:49 CEST 2017
 base.0=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f8832ef0261e190048a0b11726fb3df3ef57eb48
 renamed.1=classes2.dex
 renamed.0=classes.dex

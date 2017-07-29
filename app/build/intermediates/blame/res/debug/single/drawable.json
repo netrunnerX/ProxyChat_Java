@@ -148,10 +148,6 @@
         "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/drawable/abc_seekbar_track_material.xml"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/boton_circular.xml",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable/boton_circular.xml"
-    },
-    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/globoverde.9.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable/globoverde.9.png"
     },
@@ -208,6 +204,10 @@
         "source": "/home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/res/drawable/design_snackbar_background.xml"
     },
     {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/boton_circular_azul.xml",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable/boton_circular_azul.xml"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light_focused.xml",
         "source": "/home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/res/drawable/common_google_signin_btn_text_light_focused.xml"
     },
@@ -246,6 +246,10 @@
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
         "source": "/home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/boton_circular_verde.xml",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable/boton_circular_verde.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",

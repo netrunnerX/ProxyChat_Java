@@ -1,23 +1,23 @@
 [
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/abc_primary_text_material_dark.xml"
-    },
-    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
         "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/abc_primary_text_material_dark.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
         "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/switch_thumb_material_dark.xml"
-    },
-    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
         "source": "/home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/color/switch_thumb_material_dark.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",

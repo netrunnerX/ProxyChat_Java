@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/activity_login.xml"
-    },
-    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
         "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/activity_login.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
@@ -48,16 +48,16 @@
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/activity_registro.xml"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/infowindow_meetingpoint.xml",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/infowindow_meetingpoint.xml"
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout/notification_action_tombstone.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/fragment_meetingpoints.xml",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/fragment_meetingpoints.xml"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/res/layout/notification_action_tombstone.xml"
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/infowindow_meetingpoint.xml",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/infowindow_meetingpoint.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
@@ -282,6 +282,10 @@
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/fragment_meetingpoint_usuarios.xml",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/fragment_meetingpoint_usuarios.xml"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/card_view_bloqueados.xml",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/layout/card_view_bloqueados.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
