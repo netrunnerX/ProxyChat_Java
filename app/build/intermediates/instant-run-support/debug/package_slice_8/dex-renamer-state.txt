@@ -1,4 +1,4 @@
-#Thu Jul 27 01:05:51 CEST 2017
+#Thu Jul 27 03:17:42 CEST 2017
 base.0=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8
 renamed.0=classes.dex
 file.0=/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex
