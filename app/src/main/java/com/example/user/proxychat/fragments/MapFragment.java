@@ -772,6 +772,9 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
             for (Map.Entry<String, Marker> entry : usuariosCercanosMark.entrySet()) {
                 entry.getValue().setVisible(true);
             }
+            if (geoLocation != null)
+                geoFireUsuarios.setLocation(usuario.getId(), geoLocation);
+
             Snackbar.make(getView(), "Modo invisible desactivado",
                     Snackbar.LENGTH_LONG).show();
         }
