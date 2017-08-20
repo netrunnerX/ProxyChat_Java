@@ -29,13 +29,13 @@ import java.util.List;
  */
 public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAdaptador.MeetingPointsViewHolder> {
 
-    //Los atributos estaticos clickListener y longClickListener nos permitira manejar eventos
+    //Los atributos clickListener y longClickListener nos permitira manejar eventos
     //de click en cada item desde la clase que crea la instancia del adaptador.
     //La clase que instancia al adaptador debera implementar las interfaces OnItemClickListener
     //y OnItemLongClickListener, y establecerse a si misma como escuchador para poder gestionar
     //los eventos de click en cada item del RecyclerView
-    private static OnItemClickListener clickListener;
-    private static OnItemLongClickListener longClickListener;
+    private OnItemClickListener clickListener;
+    private OnItemLongClickListener longClickListener;
     private List<String> meetingPoints;
 
     /**
@@ -111,7 +111,7 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
     /**
      * MeetingPointsViewHolder: clase que define un ViewHolder personalizado de puntos de encuentro
      */
-    static class MeetingPointsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    class MeetingPointsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         CardView cardView;
         TextView tvNombre;
@@ -166,7 +166,7 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
      * @param clickListener escuchador de clicks
      */
     public void setOnItemClickListener(OnItemClickListener clickListener) {
-        MeetingPointsAdaptador.clickListener = clickListener;
+        this.clickListener = clickListener;
     }
 
     /**
@@ -174,7 +174,7 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
      * @param longClickListener escuchador de clicks largos
      */
     public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
-        MeetingPointsAdaptador.longClickListener = longClickListener;
+        this.longClickListener = longClickListener;
     }
 
 }

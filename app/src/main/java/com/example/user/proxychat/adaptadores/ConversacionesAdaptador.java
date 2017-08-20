@@ -35,13 +35,13 @@ import java.util.List;
  */
 public class ConversacionesAdaptador extends RecyclerView.Adapter<ConversacionesAdaptador.ConversacionesViewHolder> {
 
-    //Los atributos estaticos clickListener y longClickListener nos permitira manejar eventos
+    //Los atributos clickListener y longClickListener nos permitira manejar eventos
     //de click en cada item desde la clase que crea la instancia del adaptador.
     //La clase que instancia al adaptador debera implementar las interfaces OnItemClickListener
     //y OnItemLongClickListener, y establecerse a si misma como escuchador para poder gestionar
     //los eventos de click en cada item del RecyclerView
-    private static OnItemClickListener clickListener;
-    private static OnItemLongClickListener longClickListener;
+    private OnItemClickListener clickListener;
+    private OnItemLongClickListener longClickListener;
     private List<Conversacion> conversaciones;
     private Context context;
 
@@ -132,7 +132,7 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
     /**
      * ConversacionesViewHolder: clase que define un ViewHolder personalizado de conversaciones
      */
-    static class ConversacionesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    class ConversacionesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         CardView cardView;
         TextView tvNombre;
@@ -195,7 +195,7 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
      * @param clickListener escuchador de clicks
      */
     public void setOnItemClickListener(OnItemClickListener clickListener) {
-        ConversacionesAdaptador.clickListener = clickListener;
+        this.clickListener = clickListener;
     }
 
     /**
@@ -203,7 +203,7 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
      * @param longClickListener escuchador de clicks largos
      */
     public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
-        ConversacionesAdaptador.longClickListener = longClickListener;
+        this.longClickListener = longClickListener;
     }
 
 }

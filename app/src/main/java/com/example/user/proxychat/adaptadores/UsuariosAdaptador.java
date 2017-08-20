@@ -35,13 +35,13 @@ import java.util.List;
  */
 public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.UsuariosViewHolder>{
 
-    //El atributo estatico clickListener nos permitira manejar eventos
+    //El atributo clickListener nos permitira manejar eventos
     //de click en cada item desde la clase que crea la instancia del adaptador.
     //La clase que instancia al adaptador debera implementar la interfaz OnItemClickListener
     //y establecerse a si misma como escuchador para poder gestionar
     //los eventos de click en cada item del RecyclerView
-    private static OnItemClickListener clickListener;
-    private static OnItemLongClickListener longClickListener;
+    private OnItemClickListener clickListener;
+    private OnItemLongClickListener longClickListener;
     private List<String> contactos;
     private Context context;
     private String idUsuario;
@@ -131,7 +131,7 @@ public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.Us
     /**
      * UsuariosViewHolder: clase que define un ViewHolder personalizado de usuarios del punto de encuentro
      */
-    static class UsuariosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
+    class UsuariosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
     View.OnLongClickListener {
 
         CardView cardView;
@@ -191,7 +191,7 @@ public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.Us
      * @param clickListener escuchador de clicks
      */
     public void setOnItemClickListener(OnItemClickListener clickListener) {
-        UsuariosAdaptador.clickListener = clickListener;
+        this.clickListener = clickListener;
     }
 
     /**
@@ -199,7 +199,7 @@ public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.Us
      * @param longClickListener escuchador de clicks
      */
     public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
-        UsuariosAdaptador.longClickListener = longClickListener;
+        this.longClickListener = longClickListener;
     }
 
 }
