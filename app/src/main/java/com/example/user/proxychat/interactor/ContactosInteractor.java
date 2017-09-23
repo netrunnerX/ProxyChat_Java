@@ -63,9 +63,10 @@ public class ContactosInteractor {
                     public void onChildRemoved(DataSnapshot dataSnapshot) {
                         //Elimina el id de contacto de la lista de contactos
                         contactos.remove(dataSnapshot.getKey());
+                        presenter.notifyDataSetChanged();
                         //Actualiza el numero de contactos
                         presenter.actualizarNumeroContactos(contactos.size());
-                        presenter.notifyDataSetChanged();
+
                     }
 
                     @Override

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.user.proxychat.presenter.MeetingPointsViewHolderPresenter;
 import com.example.user.proxychat.ui.interfaces.OnItemClickListener;
 import com.example.user.proxychat.ui.interfaces.OnItemLongClickListener;
 import com.example.user.proxychat.R;
@@ -69,32 +70,7 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
      */
     @Override
     public void onBindViewHolder(final MeetingPointsAdaptador.MeetingPointsViewHolder holder, int position) {
-
-        //Obtiene una referencia a la base de datos
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        //Realiza una consulta para obtener los datos del punto de encuentro
-        databaseReference.child("meeting_points").child(meetingPoints.get(position))
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //Obtiene un objeto MeetingPoint con los datos del punto de encuentro a partir
-                        //del DataSnapshot
-                        MeetingPoint meetingPoint = dataSnapshot.getValue(MeetingPoint.class);
-
-                        //Configura el texto del TextView que muestra el nombre del punto de encuentro con
-                        //el nombre del punto de encuentro
-                        holder.tvNombre.setText(meetingPoint.getNombre());
-                        //Configura el texto del TextView que muestra la descripcion del punto de encuentro con
-                        //la descripcion del punto de encuentro
-                        holder.tvDescripcion.setText(meetingPoint.getDescripcion());
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-
+        holder.viewHolderPresenter.obtenerDatosMeetingPoint(meetingPoints.get(position));
     }
 
     /**
@@ -111,11 +87,13 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
     /**
      * MeetingPointsViewHolder: clase que define un ViewHolder personalizado de puntos de encuentro
      */
-    class MeetingPointsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    class MeetingPointsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener,
+    MeetingPointsViewHolderPresenter.MeetingPointsViewHolderView {
 
         CardView cardView;
         TextView tvNombre;
         TextView tvDescripcion;
+        MeetingPointsViewHolderPresenter viewHolderPresenter;
 
         /**
          * Constructor parametrizado
@@ -123,6 +101,7 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
          */
         MeetingPointsViewHolder(View v) {
             super(v);
+            viewHolderPresenter = new MeetingPointsViewHolderPresenter(this);
 
             //Instancia el CardView
             cardView = (CardView) v.findViewById(R.id.cardViewMeetingPoints);
@@ -158,6 +137,12 @@ public class MeetingPointsAdaptador extends RecyclerView.Adapter<MeetingPointsAd
                 return longClickListener.onLongClick(v, getAdapterPosition());
             }
             return false;
+        }
+
+        @Override
+        public void mostrarMeetingPoint(MeetingPoint meetingPoint) {
+            tvNombre.setText(meetingPoint.getNombre());
+            tvDescripcion.setText(meetingPoint.getDescripcion());
         }
     }
 

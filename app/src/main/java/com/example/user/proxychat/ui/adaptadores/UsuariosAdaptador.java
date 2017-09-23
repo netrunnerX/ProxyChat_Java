@@ -76,7 +76,7 @@ public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.Us
      */
     @Override
     public void onBindViewHolder(final UsuariosViewHolder holder, int position) {
-        holder.obtenerDatosUsuario(contactos.get(position));
+        holder.viewHolderPresenter.obtenerDatosUsuario(contactos.get(position));
     }
 
     /**
@@ -171,10 +171,6 @@ public class UsuariosAdaptador extends RecyclerView.Adapter<UsuariosAdaptador.Us
                     .into(ivFotoContacto);
         }
 
-        @Override
-        public void obtenerDatosUsuario(String usuarioId) {
-            viewHolderPresenter.obtenerDatosUsuario(usuarioId);
-        }
     }
 
     /**

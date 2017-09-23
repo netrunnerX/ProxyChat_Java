@@ -27,7 +27,6 @@ public class UsuariosViewHolderPresenter {
     }
 
     public interface UsuariosViewHolderView {
-        void obtenerDatosUsuario(String usuarioId);
         void mostrarUsuario(Usuario usuario);
     }
 }
