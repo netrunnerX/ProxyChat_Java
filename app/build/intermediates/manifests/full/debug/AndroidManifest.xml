@@ -42,7 +42,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.user.proxychat.activities.LoginActivity"
+            android:name="com.example.user.proxychat.ui.activities.LoginActivity"
             android:label="Proxychat"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.user.proxychat.activities.MainActivity"
+            android:name="com.example.user.proxychat.ui.activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -79,26 +79,26 @@
             android:value="AIzaSyDgQo7bEXV5Sv2ETQqOUpNudCDwkTRWONQ" />
 
         <activity
-            android:name="com.example.user.proxychat.activities.RegistroActivity"
+            android:name="com.example.user.proxychat.ui.activities.RegistroActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.user.proxychat.activities.PerfilActivity"
+            android:name="com.example.user.proxychat.ui.activities.PerfilActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.user.proxychat.activities.ChatActivity"
+            android:name="com.example.user.proxychat.ui.activities.ChatActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.user.proxychat.activities.ContactosActivity"
+            android:name="com.example.user.proxychat.ui.activities.ContactosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.user.proxychat.activities.InfoUsuarioActivity"
+            android:name="com.example.user.proxychat.ui.activities.InfoUsuarioActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.user.proxychat.activities.MeetingPointActivity"
+            android:name="com.example.user.proxychat.ui.activities.MeetingPointActivity"
             android:label="@string/title_activity_meeting_point"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.user.proxychat.activities.BloqueadosActivity" />
+        <activity android:name="com.example.user.proxychat.ui.activities.BloqueadosActivity" />
         <!--
          FirebaseMessagingService performs security checks at runtime,
              no need for explicit permissions despite exported="true"

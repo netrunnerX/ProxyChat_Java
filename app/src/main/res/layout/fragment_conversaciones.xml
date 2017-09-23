@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#000"
     android:orientation="vertical"
-    tools:context="com.example.user.proxychat.activities.MainActivity">
+    tools:context=".ui.activities.MainActivity">
 
     <TextView
         android:id="@+id/tvNumeroConversaciones"

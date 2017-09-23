@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.proxychat.activities.PerfilActivity"
+    tools:context=".ui.activities.PerfilActivity"
     android:background="#000">
 
     <LinearLayout
