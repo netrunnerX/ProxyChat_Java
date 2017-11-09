@@ -1,23 +1,35 @@
 [
     {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_message.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_message.png"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_cancel.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_cancel.png"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_map.png",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_map.png"
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_send.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_send.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_user.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_user.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_tick.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_tick.png"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_email.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_email.png"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_people.png",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_people.png"
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_key.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_key.png"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_rss_feed.png",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_rss_feed.png"
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_rss_feed.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_rss_feed.png"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_undo.png",
@@ -28,14 +40,6 @@
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_add.png"
     },
     {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_user.png",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_user.png"
-    },
-    {
-        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_tick.png",
-        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_tick.png"
-    },
-    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_send.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_send.png"
     },
@@ -44,8 +48,64 @@
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_key.png"
     },
     {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_cancel.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_cancel.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_add.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_add.png"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_sms.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_sms.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_sms.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_sms.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_gmail.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_gmail.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_email.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_email.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_undo.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_undo.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_map.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_map.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_people.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_people.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_people.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_people.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_rss_feed.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_rss_feed.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_user.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_user.png"
+    },
+    {
+        "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_tick.png",
+        "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_action_tick.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_map.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_map.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_location_on.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/drawable-xhdpi/ic_location_on.png"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_action_gmail.png",

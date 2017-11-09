@@ -1,10 +1,18 @@
 [
     {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
+        "source": "/home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
         "source": "/home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/res/drawable-anydpi-v21/design_ic_visibility.xml"
     },
     {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility_off.xml",
         "source": "/home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/res/drawable-anydpi-v21/design_ic_visibility_off.xml"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/design_ic_visibility.xml",
+        "source": "/home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/res/drawable-anydpi-v21/design_ic_visibility.xml"
     }
 ]

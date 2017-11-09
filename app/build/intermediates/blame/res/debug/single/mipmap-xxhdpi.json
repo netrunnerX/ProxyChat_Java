@@ -4,6 +4,14 @@
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher_round.png",
+        "source": "/home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }

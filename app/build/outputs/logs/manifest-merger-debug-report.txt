@@ -1,413 +1,413 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:2:1-79:12
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:2:1-79:12
 	package
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:3:5-41
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:3:5-41
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:2:11-69
 	android:versionCode
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:5:5-79
-MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:14:5-79
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:5:5-79
+MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:14:5-79
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:5:22-76
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:5:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:6:5-81
-MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:12:5-81
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:6:5-81
+MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:6:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:19:5-78
-MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:19:5-78
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:19:5-78
+MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:7:22-76
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:7:22-76
 uses-permission#android.permission.INTERNET
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:8:5-67
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:20:5-66
-MERGED from [com.firebase:geofire-android:2.1.1] /home/netx/.android/build-cache/dd5fc7dc7de7f0fb2d0fa6c44852641e9e64d2db/output/AndroidManifest.xml:4:3-64
-MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:20:5-66
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:20:5-66
-MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:20:5-66
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:20:5-66
+MERGED from [com.firebase:geofire-android:2.1.1] /home/net/.android/build-cache/061cdb1a557a737447847d0771aa32bf58b956dd/output/AndroidManifest.xml:4:3-64
+MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:8:22-64
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:8:22-64
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:9:5-80
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:9:5-80
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:9:22-77
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:9:22-77
 application
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:11:5-77:19
-MERGED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] /home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/netx/.android/build-cache/8ceb2e0eaeffafd6d2f13734ba85bf4f633c00da/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/netx/.android/build-cache/a2f8f3fd44abfa81141242975c754d849352b6e6/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.1] /home/netx/.android/build-cache/3659426b5e44781398b4c17e6912b7ef5d780cb6/output/AndroidManifest.xml:26:5-20
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:24:5-19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/netx/.android/build-cache/07d48e9c57d1dc0b459d3e1293f0512f3750557d/output/AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:cardview-v7:25.3.1] /home/netx/.android/build-cache/ed89e833f92f49242cb5524308126785932beae1/output/AndroidManifest.xml:26:5-20
-MERGED from [com.google.firebase:firebase-auth:11.0.2] /home/netx/.android/build-cache/34c4f81e2b82d357ec40c6fa0e3d1c599612ef11/output/AndroidManifest.xml:19:5-20:19
-MERGED from [com.google.firebase:firebase-messaging:11.0.2] /home/netx/.android/build-cache/1523974da0faff16b6c79a67c8564009e67d0811/output/AndroidManifest.xml:19:5-29:19
-MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:18:5-28:19
-MERGED from [com.google.android.gms:play-services-location:11.0.2] /home/netx/.android/build-cache/87c07a9c7e2deb854da7995b52adbc257e7354fd/output/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:18:5-20:19
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/netx/.android/build-cache/69f046df0aa8debcb60bde17db899ed01e8998b8/output/AndroidManifest.xml:9:5-20
-MERGED from [com.google.firebase:firebase-core:11.0.2] /home/netx/.android/build-cache/6497ef3c31f8aae87d0bee2856b989a6a5cd48d4/output/AndroidManifest.xml:5:5-20
-MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:24:5-34:19
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:24:5-28:19
-MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:28:5-49:19
-MERGED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:4:5-7:19
-MERGED from [com.google.android.gms:play-services-tasks:11.0.2] /home/netx/.android/build-cache/d91c9e049abc049b8156f0015530cf1150db8902/output/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.0.2] /home/netx/.android/build-cache/dc65fc41cf4ba0661bc8ede45dad609eb367a603/output/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:25.3.1] /home/netx/.android/build-cache/90fcf3dd81bd58d80dee9073c7a58a199e33549c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /home/netx/.android/build-cache/10ef36f65f72249709774434460b97c375dde993/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/netx/.android/build-cache/bcd9e1dd3fb689cdf45591ae3e98e93146e3bed4/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] /home/netx/.android/build-cache/6961118454bbc7b48b2eba6fb50bdd9905b6b560/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/netx/.android/build-cache/810d455d544886b24edbee2fcb8c30f5c3c2a29c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] /home/netx/.android/build-cache/d92ac8bc6f1077b24c5cbdbf49a6eb32761d7b91/output/AndroidManifest.xml:29:5-20
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:11:5-77:19
+MERGED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/net/.android/build-cache/17367e7a12eb6f5c0664565183d60253be629445/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/net/.android/build-cache/a8e9a189d5ad26064a8ef89e8231c7a175941da7/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/net/.android/build-cache/ed267a0edece1af999c1859de213c98ac5d51592/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /home/net/.android/build-cache/1dfa54fd066b0f7b679fa6f8989a994373a8bd78/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:24:5-19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/net/.android/build-cache/7cc3c8349a5b8bf7c938d6a4c724682ae8dd1edf/output/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/net/.android/build-cache/883bfc5cf16b764bcaccd79feb9b3a204d3f8ba5/output/AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-auth:11.0.2] /home/net/.android/build-cache/d92908d170371fa6358ce922b8dd54fa06eb981e/output/AndroidManifest.xml:19:5-20:19
+MERGED from [com.google.firebase:firebase-messaging:11.0.2] /home/net/.android/build-cache/dfd2fc35831ca71e56f729c36d24620a983a6f9f/output/AndroidManifest.xml:19:5-29:19
+MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:18:5-28:19
+MERGED from [com.google.android.gms:play-services-location:11.0.2] /home/net/.android/build-cache/4fa0ba7b8920c8f37ef5e17dc696e342ef139e60/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:18:5-20:19
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/net/.android/build-cache/293e2d82c6fd7c16dc1ffbf0f41858f12455bba0/output/AndroidManifest.xml:9:5-20
+MERGED from [com.google.firebase:firebase-core:11.0.2] /home/net/.android/build-cache/061fd35858e27b19626a61a1d5ca35723aa46f08/output/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:24:5-34:19
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:28:5-49:19
+MERGED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tasks:11.0.2] /home/net/.android/build-cache/aeed8aa4cebcea9e7d7b6dbb49e36e46154af4b2/output/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.0.2] /home/net/.android/build-cache/0466729cd53e690fae81d0ded1c1b90ba3f39e2b/output/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:25.3.1] /home/net/.android/build-cache/cb19eff4361fdf0564d1852c03af02427ea43fbb/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /home/net/.android/build-cache/77861e0c8d69ef28253b9a79a25b4385dfb53cdc/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/net/.android/build-cache/b5ef97f93b871442b7b0f53f0fa0a7826306b3c7/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/net/.android/build-cache/98c4832ea193cb03d614acdd533b04824623648f/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/net/.android/build-cache/6664f996713e03ca82f4c1c6ddff2d71499619fc/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /home/net/.android/build-cache/5a50bdba401049e68b0ea19edeffea9aa3119bf0/output/AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:15:9-34
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:15:9-34
 	android:supportsRtl
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:17:9-35
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:17:9-35
 	android:roundIcon
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:16:9-54
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:16:9-54
 	android:allowBackup
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:13:9-35
 	android:icon
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:14:9-38
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:14:9-38
 	android:theme
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:18:9-40
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:18:9-40
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:12:9-35
 activity#com.example.user.proxychat.ui.activities.LoginActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:19:9-28:20
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:19:9-28:20
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:22:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:22:13-49
 	android:label
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:21:13-38
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:21:13-38
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:20:13-56
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:20:13-56
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:23:13-27:29
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:24:17-69
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:24:25-66
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:26:17-77
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:26:27-74
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:26:27-74
 activity#com.example.user.proxychat.ui.activities.MainActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:29:9-33:59
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:29:9-33:59
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:32:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:32:13-49
 	android:label
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:31:13-45
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:31:13-45
 	android:theme
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:33:13-56
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:33:13-56
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:30:13-55
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:30:13-55
 service#com.example.user.proxychat.servicios.FirebaseId
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:35:9-42:19
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:35:9-42:19
 	android:enabled
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:37:13-35
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:37:13-35
 	android:exported
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:38:13-36
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:38:13-36
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:36:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:36:13-49
 intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:39:13-41:29
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:39:13-41:29
 action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:40:17-80
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:40:17-80
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:40:25-77
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:40:25-77
 service#com.example.user.proxychat.servicios.FirebaseServicioMensajes
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:43:9-50:19
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:43:9-50:19
 	android:enabled
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:45:13-35
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:45:13-35
 	android:exported
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:46:13-36
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:46:13-36
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:44:13-63
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:44:13-63
 intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:47:13-49:29
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:47:13-49:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:48:17-78
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:48:17-78
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:48:25-75
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:48:25-75
 meta-data#com.google.android.maps.v2.API_KEY
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:52:9-54:71
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:52:9-54:71
 	android:value
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:54:13-68
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:54:13-68
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:53:13-62
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:53:13-62
 activity#com.example.user.proxychat.ui.activities.RegistroActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:56:9-58:52
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:56:9-58:52
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:58:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:58:13-49
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:57:13-59
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:57:13-59
 activity#com.example.user.proxychat.ui.activities.PerfilActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:59:9-61:52
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:59:9-61:52
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:61:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:61:13-49
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:60:13-57
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:60:13-57
 activity#com.example.user.proxychat.ui.activities.ChatActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:62:9-64:52
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:62:9-64:52
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:64:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:64:13-49
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:63:13-55
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:63:13-55
 activity#com.example.user.proxychat.ui.activities.ContactosActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:65:9-67:52
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:65:9-67:52
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:67:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:67:13-49
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:66:13-60
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:66:13-60
 activity#com.example.user.proxychat.ui.activities.InfoUsuarioActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:68:9-70:52
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:68:9-70:52
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:70:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:70:13-49
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:69:13-62
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:69:13-62
 activity#com.example.user.proxychat.ui.activities.MeetingPointActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:71:9-75:59
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:71:9-75:59
 	android:screenOrientation
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:74:13-49
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:74:13-49
 	android:label
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:73:13-65
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:73:13-65
 	android:theme
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:75:13-56
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:75:13-56
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:72:13-63
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:72:13-63
 activity#com.example.user.proxychat.ui.activities.BloqueadosActivity
-ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:76:9-79
+ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:76:9-79
 	android:name
-		ADDED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:76:19-67
+		ADDED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml:76:19-67
 uses-sdk
-INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.1] /home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/netx/.android/build-cache/8ceb2e0eaeffafd6d2f13734ba85bf4f633c00da/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/netx/.android/build-cache/a2f8f3fd44abfa81141242975c754d849352b6e6/output/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:transition:25.3.1] /home/netx/.android/build-cache/3659426b5e44781398b4c17e6912b7ef5d780cb6/output/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:23:5-43
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/netx/.android/build-cache/07d48e9c57d1dc0b459d3e1293f0512f3750557d/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:cardview-v7:25.3.1] /home/netx/.android/build-cache/ed89e833f92f49242cb5524308126785932beae1/output/AndroidManifest.xml:20:5-43
-MERGED from [com.google.firebase:firebase-auth:11.0.2] /home/netx/.android/build-cache/34c4f81e2b82d357ec40c6fa0e3d1c599612ef11/output/AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-messaging:11.0.2] /home/netx/.android/build-cache/1523974da0faff16b6c79a67c8564009e67d0811/output/AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-database:11.0.2] /home/netx/.android/build-cache/1d68a80cf393c03670818bbe11f4305774738a10/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.firebase:firebase-database-connection:11.0.2] /home/netx/.android/build-cache/51dbf5b86fae25f88b9d131de17f72c1ac715fc8/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.firebase:firebase-storage:11.0.2] /home/netx/.android/build-cache/618aae2828e5feb346a868c19d47b5cd16734ca4/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.firebase:firebase-storage-common:11.0.2] /home/netx/.android/build-cache/666eb1b1c3f0ee363348c809cd4adb3edaba6644/output/AndroidManifest.xml:3:5-43
-MERGED from [com.firebase:geofire-android:2.1.1] /home/netx/.android/build-cache/dd5fc7dc7de7f0fb2d0fa6c44852641e9e64d2db/output/AndroidManifest.xml:2:3-70
-MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:8:5-10:41
-MERGED from [com.google.android.gms:play-services-location:11.0.2] /home/netx/.android/build-cache/87c07a9c7e2deb854da7995b52adbc257e7354fd/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:17:5-43
-MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/netx/.android/build-cache/69f046df0aa8debcb60bde17db899ed01e8998b8/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/netx/.android/build-cache/ee43a6a8102789c341216ebc0154e4fb9631f179/output/AndroidManifest.xml:20:5-43
-MERGED from [com.google.firebase:firebase-core:11.0.2] /home/netx/.android/build-cache/6497ef3c31f8aae87d0bee2856b989a6a5cd48d4/output/AndroidManifest.xml:4:5-43
-MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:17:5-43
-MERGED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.0.2] /home/netx/.android/build-cache/d91c9e049abc049b8156f0015530cf1150db8902/output/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.0.2] /home/netx/.android/build-cache/dc65fc41cf4ba0661bc8ede45dad609eb367a603/output/AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:25.3.1] /home/netx/.android/build-cache/90fcf3dd81bd58d80dee9073c7a58a199e33549c/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] /home/netx/.android/build-cache/10ef36f65f72249709774434460b97c375dde993/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/netx/.android/build-cache/bcd9e1dd3fb689cdf45591ae3e98e93146e3bed4/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] /home/netx/.android/build-cache/6961118454bbc7b48b2eba6fb50bdd9905b6b560/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/netx/.android/build-cache/810d455d544886b24edbee2fcb8c30f5c3c2a29c/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] /home/netx/.android/build-cache/d92ac8bc6f1077b24c5cbdbf49a6eb32761d7b91/output/AndroidManifest.xml:21:5-23:58
+INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/net/.android/build-cache/17367e7a12eb6f5c0664565183d60253be629445/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/net/.android/build-cache/a8e9a189d5ad26064a8ef89e8231c7a175941da7/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/net/.android/build-cache/ed267a0edece1af999c1859de213c98ac5d51592/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] /home/net/.android/build-cache/1dfa54fd066b0f7b679fa6f8989a994373a8bd78/output/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:23:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/net/.android/build-cache/7cc3c8349a5b8bf7c938d6a4c724682ae8dd1edf/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/net/.android/build-cache/883bfc5cf16b764bcaccd79feb9b3a204d3f8ba5/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-auth:11.0.2] /home/net/.android/build-cache/d92908d170371fa6358ce922b8dd54fa06eb981e/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-messaging:11.0.2] /home/net/.android/build-cache/dfd2fc35831ca71e56f729c36d24620a983a6f9f/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-database:11.0.2] /home/net/.android/build-cache/83a07e15300f2ae8a9e4a617e64c41200474b8a3/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection:11.0.2] /home/net/.android/build-cache/bad4ec0d80bc3efe094fee21800d5d9a7bc0f6dc/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage:11.0.2] /home/net/.android/build-cache/6d0483c1d14e7adbd707bfee2d22c8fa5a5850fc/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-common:11.0.2] /home/net/.android/build-cache/9e2aefdb72c974d4f6b6a828117d6d78f7d1256c/output/AndroidManifest.xml:3:5-43
+MERGED from [com.firebase:geofire-android:2.1.1] /home/net/.android/build-cache/061cdb1a557a737447847d0771aa32bf58b956dd/output/AndroidManifest.xml:2:3-70
+MERGED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:8:5-10:41
+MERGED from [com.google.android.gms:play-services-location:11.0.2] /home/net/.android/build-cache/4fa0ba7b8920c8f37ef5e17dc696e342ef139e60/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:17:5-43
+MERGED from [de.hdodenhof:circleimageview:2.1.0] /home/net/.android/build-cache/293e2d82c6fd7c16dc1ffbf0f41858f12455bba0/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/net/.android/build-cache/90a2bdff2bd3f6bdf4e254e6bec58b897f8f00b7/output/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-core:11.0.2] /home/net/.android/build-cache/061fd35858e27b19626a61a1d5ca35723aa46f08/output/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.0.2] /home/net/.android/build-cache/aeed8aa4cebcea9e7d7b6dbb49e36e46154af4b2/output/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.0.2] /home/net/.android/build-cache/0466729cd53e690fae81d0ded1c1b90ba3f39e2b/output/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:25.3.1] /home/net/.android/build-cache/cb19eff4361fdf0564d1852c03af02427ea43fbb/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /home/net/.android/build-cache/77861e0c8d69ef28253b9a79a25b4385dfb53cdc/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/net/.android/build-cache/b5ef97f93b871442b7b0f53f0fa0a7826306b3c7/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/net/.android/build-cache/98c4832ea193cb03d614acdd533b04824623648f/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/net/.android/build-cache/6664f996713e03ca82f4c1c6ddff2d71499619fc/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] /home/net/.android/build-cache/5a50bdba401049e68b0ea19edeffea9aa3119bf0/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
-		INJECTED from /home/netx/Escritorio/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
+		INJECTED from /home/net/Escritorio/desarrollo_android/proyectos_github/Proyecto_ProxyChat/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] /home/netx/.android/build-cache/033ee53543619dce95d802981592de0d38c3b1e9/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/netx/.android/build-cache/8ceb2e0eaeffafd6d2f13734ba85bf4f633c00da/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/netx/.android/build-cache/a2f8f3fd44abfa81141242975c754d849352b6e6/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.1] /home/netx/.android/build-cache/3659426b5e44781398b4c17e6912b7ef5d780cb6/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:cardview-v7:25.3.1] /home/netx/.android/build-cache/ed89e833f92f49242cb5524308126785932beae1/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/netx/.android/build-cache/ee43a6a8102789c341216ebc0154e4fb9631f179/output/AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] /home/netx/.android/build-cache/90fcf3dd81bd58d80dee9073c7a58a199e33549c/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] /home/netx/.android/build-cache/10ef36f65f72249709774434460b97c375dde993/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/netx/.android/build-cache/bcd9e1dd3fb689cdf45591ae3e98e93146e3bed4/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] /home/netx/.android/build-cache/6961118454bbc7b48b2eba6fb50bdd9905b6b560/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/netx/.android/build-cache/810d455d544886b24edbee2fcb8c30f5c3c2a29c/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] /home/netx/.android/build-cache/d92ac8bc6f1077b24c5cbdbf49a6eb32761d7b91/output/AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /home/net/.android/build-cache/17367e7a12eb6f5c0664565183d60253be629445/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/net/.android/build-cache/a8e9a189d5ad26064a8ef89e8231c7a175941da7/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/net/.android/build-cache/ed267a0edece1af999c1859de213c98ac5d51592/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /home/net/.android/build-cache/1dfa54fd066b0f7b679fa6f8989a994373a8bd78/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /home/net/.android/build-cache/883bfc5cf16b764bcaccd79feb9b3a204d3f8ba5/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/net/.android/build-cache/90a2bdff2bd3f6bdf4e254e6bec58b897f8f00b7/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /home/net/.android/build-cache/cb19eff4361fdf0564d1852c03af02427ea43fbb/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /home/net/.android/build-cache/77861e0c8d69ef28253b9a79a25b4385dfb53cdc/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/net/.android/build-cache/b5ef97f93b871442b7b0f53f0fa0a7826306b3c7/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /home/net/.android/build-cache/98c4832ea193cb03d614acdd533b04824623648f/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/net/.android/build-cache/6664f996713e03ca82f4c1c6ddff2d71499619fc/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /home/net/.android/build-cache/5a50bdba401049e68b0ea19edeffea9aa3119bf0/output/AndroidManifest.xml:25:5-27:34
 	android:value
-		ADDED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:design:25.3.1] /home/netx/.android/build-cache/dd603541ee131ee9b590ca04172e7cd6b791e1d5/output/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:25.3.1] /home/net/.android/build-cache/d4a314ea7a08c67eebc1d09babfb17f349fa38a3/output/AndroidManifest.xml:26:9-47
 uses-feature#0x00020000
-ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:21:5-77
+ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:21:5-77
 	android:glEsVersion
-		ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:21:19-51
+		ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:21:19-51
 	android:required
-		ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/netx/.android/build-cache/f418c92e9c8f8fa63dbe0705c25626b775c57283/output/AndroidManifest.xml:21:52-75
+		ADDED from [com.google.android.gms:play-services-maps:11.0.2] /home/net/.android/build-cache/33a51ecdd535aab4651523d9d2ff7db034b558b2/output/AndroidManifest.xml:21:52-75
 service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/netx/.android/build-cache/1523974da0faff16b6c79a67c8564009e67d0811/output/AndroidManifest.xml:23:9-27:19
+ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/net/.android/build-cache/dfd2fc35831ca71e56f729c36d24620a983a6f9f/output/AndroidManifest.xml:23:9-27:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/netx/.android/build-cache/1523974da0faff16b6c79a67c8564009e67d0811/output/AndroidManifest.xml:23:88-111
+		ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/net/.android/build-cache/dfd2fc35831ca71e56f729c36d24620a983a6f9f/output/AndroidManifest.xml:23:88-111
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/netx/.android/build-cache/1523974da0faff16b6c79a67c8564009e67d0811/output/AndroidManifest.xml:23:18-87
+		ADDED from [com.google.firebase:firebase-messaging:11.0.2] /home/net/.android/build-cache/dfd2fc35831ca71e56f729c36d24620a983a6f9f/output/AndroidManifest.xml:23:18-87
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:15:5-98
+ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:15:5-98
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:15:22-95
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:15:22-95
 uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
-ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:16:5-94
+ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:16:5-94
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:16:22-91
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:16:22-91
 service#io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService
-ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:19:9-21:40
+ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:19:9-21:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:21:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:21:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:20:13-132
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:20:13-132
 service#io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService
-ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:22:9-24:40
+ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:22:9-24:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:24:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:24:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:23:13-127
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:23:13-127
 service#io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService
-ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:25:9-27:40
+ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:25:9-27:40
 	android:exported
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:27:13-37
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/netx/.android/build-cache/cf46328e3f3546d7ecf9fc19469d2c3a3fd55609/output/AndroidManifest.xml:26:13-120
+		ADDED from [io.nlopez.smartlocation:library:3.3.1] /home/net/.android/build-cache/4ea19660e368324d37c151ca1e840d20f4ddfa7f/output/AndroidManifest.xml:26:13-120
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/netx/.android/build-cache/1456f7bf20a822dadc73b00b1b11733ee55ffeb2/output/AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:11.0.2] /home/net/.android/build-cache/3f495b14e2c4da98948c31c30b690012004148bc/output/AndroidManifest.xml:19:19-85
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:21:5-67
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:21:5-67
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:22:22-65
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:22:22-65
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:25:7-26:18
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:25:7-26:18
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:25:7-26:18
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:25:90-112
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:25:90-112
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:25:113-137
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:25:113-137
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:25:17-89
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:25:17-89
 receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:27:7-31:18
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:27:7-31:18
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:27:162-184
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:27:162-184
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:27:185-208
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:27:185-208
 	android:permission
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:27:105-161
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:27:105-161
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:27:17-104
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:27:17-104
 intent-filter#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:28:11-30:27
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:28:11-30:27
 action#com.android.vending.INSTALL_REFERRER
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:29:15-76
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:29:15-76
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:29:23-74
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:29:23-74
 service#com.google.android.gms.measurement.AppMeasurementService
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:32:7-137
-MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/netx/.android/build-cache/dee1631f9bd0af6137c0dc0f6079d1549a60943d/output/AndroidManifest.xml:27:7-137
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] /home/net/.android/build-cache/5b287745da819389f582451ff1329413407d2976/output/AndroidManifest.xml:27:7-137
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:32:88-110
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:32:88-110
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:32:111-135
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:32:111-135
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:32:16-87
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:32:16-87
 service#com.google.android.gms.measurement.AppMeasurementJobService
-ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:33:7-197
+ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:33:7-197
 	android:enabled
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:33:148-170
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:33:148-170
 	android:exported
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:33:171-195
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:33:171-195
 	android:permission
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:33:91-147
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:33:91-147
 	android:name
-		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/netx/.android/build-cache/f78b79de471964bbf01fb9f85a7617716e4214cc/output/AndroidManifest.xml:33:16-90
+		ADDED from [com.google.firebase:firebase-analytics:11.0.2] /home/net/.android/build-cache/d26d2d4b340ff934d991134f990cb80ad10ef91e/output/AndroidManifest.xml:33:16-90
 uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:22:5-81
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:22:5-81
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:22:22-79
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:22:22-79
 permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:24:5-109
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:24:5-109
 	android:protectionLevel
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:24:72-107
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:24:72-107
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:24:17-71
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:24:17-71
 uses-permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:26:5-78
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:26:5-78
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:26:22-76
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:26:22-76
 receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:30:9-35:20
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:30:9-35:20
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:30:85-108
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:30:85-108
 	android:permission
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:30:109-169
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:30:109-169
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:30:19-84
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:30:19-84
 intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:31:13-34:29
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:31:13-34:29
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:32:17-80
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:32:17-80
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:32:25-78
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:32:25-78
 category#${applicationId}
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:33:17-60
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:33:17-60
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:33:27-58
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:33:27-58
 receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:39:9-119
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:39:9-119
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:39:93-117
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:39:93-117
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:39:19-92
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:39:19-92
 service#com.google.firebase.iid.FirebaseInstanceIdService
-ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:43:9-47:19
+ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:43:9-47:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:43:83-106
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:43:83-106
 	android:name
-		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/netx/.android/build-cache/ab5148fabaf78095708dd26f66482fc355ed6c62/output/AndroidManifest.xml:43:18-82
+		ADDED from [com.google.firebase:firebase-iid:11.0.2] /home/net/.android/build-cache/cc84d8eddbef498345039f3a06368ee8aee8a9c7/output/AndroidManifest.xml:43:18-82
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:6:9-194
+ADDED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:6:9-194
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:6:19-78
+		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:6:19-78
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:6:144-168
+		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:6:144-168
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:6:169-192
+		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:6:169-192
 	android:name
-		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/netx/.android/build-cache/ebd12c627427a9807b3fcdab862dcbd9efd69065/output/AndroidManifest.xml:6:79-143
+		ADDED from [com.google.firebase:firebase-common:11.0.2] /home/net/.android/build-cache/f9b7810c7c7cfd2a5c47e7a7385e4b4b0bac3503/output/AndroidManifest.xml:6:79-143
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/netx/.android/build-cache/dc65fc41cf4ba0661bc8ede45dad609eb367a603/output/AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/net/.android/build-cache/0466729cd53e690fae81d0ded1c1b90ba3f39e2b/output/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/netx/.android/build-cache/dc65fc41cf4ba0661bc8ede45dad609eb367a603/output/AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/net/.android/build-cache/0466729cd53e690fae81d0ded1c1b90ba3f39e2b/output/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/netx/.android/build-cache/dc65fc41cf4ba0661bc8ede45dad609eb367a603/output/AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:11.0.2] /home/net/.android/build-cache/0466729cd53e690fae81d0ded1c1b90ba3f39e2b/output/AndroidManifest.xml:20:20-65
