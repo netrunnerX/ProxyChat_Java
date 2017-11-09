@@ -2,7 +2,6 @@ package com.example.user.proxychat.ui.adaptadores;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,15 +16,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Usuario;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.user.proxychat.presenter.BloqueadosViewHolderPresenter;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 /**
  * Created by netx on 7/29/17.
@@ -33,11 +27,11 @@ import java.util.ArrayList;
 
 public class BloqueadosAdaptador extends RecyclerView.Adapter<BloqueadosAdaptador.BloqueadosViewHolder> {
 
-    private ArrayList<String> bloqueados;
+    private List<String> bloqueados;
     private Context context;
     private String usuarioId;
 
-    public BloqueadosAdaptador(Context context, String usuarioId, ArrayList<String> bloqueados) {
+    public BloqueadosAdaptador(Context context, String usuarioId, List<String> bloqueados) {
         this.context = context;
         this.usuarioId = usuarioId;
         this.bloqueados = bloqueados;
@@ -51,55 +45,12 @@ public class BloqueadosAdaptador extends RecyclerView.Adapter<BloqueadosAdaptado
 
     @Override
     public void onBindViewHolder(final BloqueadosViewHolder holder, final int position) {
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("usuarios").child(bloqueados.get(position))
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //Obtiene un objeto Usuario con los datos del usuario a partir del DataSnapshot
-                        Usuario contacto = dataSnapshot.getValue(Usuario.class);
-
-                        //Configura el texto del TextView que muestra el nombre del usuario
-                        holder.tvNombre.setText(contacto.getApodo());
-
-                        //Crea un objeto Uri a partir de la URL de la imagen del usuario
-                        Uri fotoUri = Uri.parse(contacto.getImagenUrl());
-
-                        //Descarga la imagen y la carga en el ImageView que muestra la imagen del usuario
-                        //utilizando la libreria Glide
-                        Glide.with(context.getApplicationContext())
-                                .load(fotoUri)
-                                .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
-                                .into(holder.imageView);
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+        holder.viewHolderPresenter.obtenerUsuarioBloqueado(bloqueados.get(position));
 
         holder.btDesbloquear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                databaseReference.child("contactos")
-                        .child("usuarios")
-                        .child(usuarioId)
-                        .child("bloqueados")
-                        .child(bloqueados.get(position)).removeValue()
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Snackbar.make(view, "Usuario desbloqueado", Snackbar.LENGTH_LONG).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(view, "Error, no se ha podido desbloquear al usuario",
-                                        Snackbar.LENGTH_LONG).show();
-                            }
-                });
+                holder.viewHolderPresenter.desbloquearUsuario(usuarioId, bloqueados.get(position));
             }
 
         });
@@ -110,12 +61,13 @@ public class BloqueadosAdaptador extends RecyclerView.Adapter<BloqueadosAdaptado
         return bloqueados.size();
     }
 
-    class BloqueadosViewHolder extends RecyclerView.ViewHolder {
+    class BloqueadosViewHolder extends RecyclerView.ViewHolder implements BloqueadosViewHolderPresenter.BloqueadosViewHolderView {
 
         CardView cardView;
         TextView tvNombre;
         ImageView imageView;
         ImageButton btDesbloquear;
+        BloqueadosViewHolderPresenter viewHolderPresenter;
 
 
         public BloqueadosViewHolder(View v) {
@@ -125,7 +77,29 @@ public class BloqueadosAdaptador extends RecyclerView.Adapter<BloqueadosAdaptado
             tvNombre = (TextView)v.findViewById(R.id.tvNombreBloqueado);
             imageView = (ImageView)v.findViewById(R.id.ivFotoBloqueado);
             btDesbloquear = (ImageButton)v.findViewById(R.id.btDesbloquear);
+            viewHolderPresenter = new BloqueadosViewHolderPresenter(this);
 
+        }
+
+        @Override
+        public void mostrarBloqueado(Usuario usuarioBloqueado) {
+            //Configura el texto del TextView que muestra el nombre del usuario
+            tvNombre.setText(usuarioBloqueado.getApodo());
+
+            //Crea un objeto Uri a partir de la URL de la imagen del usuario
+            Uri fotoUri = Uri.parse(usuarioBloqueado.getImagenUrl());
+
+            //Descarga la imagen y la carga en el ImageView que muestra la imagen del usuario
+            //utilizando la libreria Glide
+            Glide.with(context.getApplicationContext())
+                    .load(fotoUri)
+                    .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
+                    .into(imageView);
+        }
+
+        @Override
+        public void mostrarMensaje(String mensaje) {
+            Snackbar.make(tvNombre, mensaje, Snackbar.LENGTH_LONG).show();
         }
     }
 }

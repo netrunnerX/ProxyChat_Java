@@ -8,24 +8,17 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.user.proxychat.R;
+import com.example.user.proxychat.presenter.BloqueadosPresenter;
 import com.example.user.proxychat.ui.adaptadores.BloqueadosAdaptador;
 import com.example.user.proxychat.data.Usuario;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
+public class BloqueadosActivity extends AppCompatActivity implements BloqueadosPresenter.BloqueadosView{
 
-public class BloqueadosActivity extends AppCompatActivity {
-
-    private DatabaseReference databaseReference;
     private TextView tvNumeroBloqueados;
     private RecyclerView recyclerView;
     private Usuario usuario;
-    private ArrayList<String> bloqueados;
     private BloqueadosAdaptador bloqueadosAdaptador;
+    private BloqueadosPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +34,7 @@ public class BloqueadosActivity extends AppCompatActivity {
         //Obtiene del bundle el objeto Usuario del usuario
         usuario = (Usuario)bundle.getSerializable("usuario");
 
-        bloqueados = new ArrayList<>();
-
-        //Obtiene una referencia a la base de datos
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        presenter = new BloqueadosPresenter(this);
 
         //Inicializa el RecyclerView a traves del cual se muestra la lista de contactos
         recyclerView = (RecyclerView)findViewById(R.id.recyclerviewBloqueados);
@@ -56,48 +46,24 @@ public class BloqueadosActivity extends AppCompatActivity {
         //Configura el RecyclerView con el LinearLayoutManager
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        bloqueadosAdaptador = new BloqueadosAdaptador(this, usuario.getId(), bloqueados);
+        bloqueadosAdaptador = new BloqueadosAdaptador(this, usuario.getId(), presenter.getBloqueados());
         recyclerView.setAdapter(bloqueadosAdaptador);
 
-        iniciarEscuchadorBloqueados();
+        obtenerUsuariosBloqueados(usuario.getId());
     }
 
-    public void iniciarEscuchadorBloqueados() {
-        databaseReference.child("contactos")
-                .child("usuarios")
-                .child(usuario.getId())
-                .child("bloqueados").addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        String id = dataSnapshot.getKey();
-                        bloqueados.add(id);
-                        bloqueadosAdaptador.notifyDataSetChanged();
-                        tvNumeroBloqueados.setText("Bloqueados: " + bloqueados.size());
-                    }
+    public void obtenerUsuariosBloqueados(String usuarioId) {
+        presenter.obtenerUsuariosBloqueados(usuarioId);
+    }
 
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+    @Override
+    public void notifyDataSetChanged() {
+        bloqueadosAdaptador.notifyDataSetChanged();
+    }
 
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-                        String id = dataSnapshot.getKey();
-                        bloqueados.remove(id);
-                        bloqueadosAdaptador.notifyDataSetChanged();
-                        tvNumeroBloqueados.setText("Bloqueados: " + bloqueados.size());
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-        });
+    @Override
+    public void actualizarNumeroBloqueados(int numero) {
+        tvNumeroBloqueados.setText("Bloqueados: " + numero);
     }
 
     /**
