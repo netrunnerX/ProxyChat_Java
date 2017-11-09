@@ -2,7 +2,6 @@ package com.example.user.proxychat.ui.activities;
 
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,25 +15,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Usuario;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.user.proxychat.presenter.InfoUsuarioPresenter;
 
 /**
  * InfoUsuarioActivity: actividad encargada de mostrar informacion de un usuario, asi como permitir
  * agregar al usuario a la lista de contactos o enviarle un mensaje
  */
-public class InfoUsuarioActivity extends AppCompatActivity {
+public class InfoUsuarioActivity extends AppCompatActivity implements InfoUsuarioPresenter.InfoUsuarioView {
 
     private TextView tvApodo;
-    private DatabaseReference databaseReference;
     private Usuario contacto;
     private Usuario usuario;
     private ImageView fotoPerfil;
+    private InfoUsuarioPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +43,6 @@ public class InfoUsuarioActivity extends AppCompatActivity {
         contacto = (Usuario)bundle.getSerializable("contacto");
         //Obtiene del bundle el objeto Usuario del usuario
         usuario = (Usuario)bundle.getSerializable("usuario");
-
-        //Obtiene una referencia a la base de datos
-        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         //Inicializa el TextView del nombre del contacto
         tvApodo = (TextView)findViewById(R.id.tvApodoPerfil);
@@ -71,12 +61,13 @@ public class InfoUsuarioActivity extends AppCompatActivity {
                 .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
                 .into(fotoPerfil);
 
+        presenter = new InfoUsuarioPresenter(this);
 
         AppCompatButton botonAgregarContacto = (AppCompatButton) findViewById(R.id.botonAgregarContacto);
         botonAgregarContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                agregarContacto(v);
+                agregarContacto(usuario.getId(), contacto.getId());
             }
         });
 
@@ -84,116 +75,11 @@ public class InfoUsuarioActivity extends AppCompatActivity {
 
     /**
      * agregarContacto: metodo encargado de agregar el contacto a la lista de contactos
-     * @param v
+     * @param usuarioId Id del usuario al que pertenece el dispositivo
+     * @param contactoId Id del contacto a agregar
      */
-    public void agregarContacto(final View v) {
-
-        //Realiza una consulta para comprobar si el usuario nos ha bloqueado
-        databaseReference.child("contactos")
-                .child("usuarios")
-                .child(contacto.getId())
-                .child("bloqueados")
-                .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
-
-                //Si no estamos en la lista de bloqueados
-                if (bBloqueado == null) {
-                    //Realiza una consulta en la referencia de la base de datos donde se encuentran almacenados
-                    //los contactos del usuario para comprobar si el contacto ya existe en la lista
-                    databaseReference.child("contactos").child("usuarios").child(usuario.getId()).child("usuarios")
-                            .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            //Obtiene el valor booleano que contiene el nodo contacto
-                            Boolean bContacto = dataSnapshot.getValue(Boolean.class);
-
-                            //Si el valor no es nulo, significa que el nodo del contacto existe en la lista,
-                            //por lo que no es necesario agregarlo
-                            if (bContacto != null) {
-                                //Muestra un Snackbar informando al usuario de que el contacto ya existe en la lista
-                                //de contactos
-                                Snackbar.make(v, "El usuario ya existe en la lista de contactos",
-                                        Snackbar.LENGTH_LONG).show();
-                            }
-                            //Si el contacto no existe en la lista
-                            else {
-
-                                databaseReference.child("invitaciones")
-                                        .child("usuarios")
-                                        .child(contacto.getId())
-                                        .child(usuario.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(DataSnapshot dataSnapshot) {
-                                        Boolean b = dataSnapshot.getValue(Boolean.TYPE);
-
-                                        if (b == null) {
-                                            //Almacena en la base de datos el nuevo contacto
-                                            databaseReference.child("invitaciones")
-                                                    .child("usuarios")
-                                                    .child(contacto.getId())
-                                                    .child(usuario.getId())
-                                                    .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                /**
-                                                 * onSuccess: se ejecuta si la operacion se realizo satisfactoriamente
-                                                 * @param aVoid
-                                                 */
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    //Muestra un Snackbar informando al usuario de que el contacto h
-                                                    // a sido añadido
-                                                    //a la lista de contactos
-                                                    Snackbar.make(v, "Petición de contacto enviada",
-                                                            Snackbar.LENGTH_LONG).show();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                /**
-                                                 * onFailure: se ejecuta si la operacion fallo
-                                                 * @param e
-                                                 */
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    //Muestra un Snackbar informando al usuario de que hubo un error en la
-                                                    //operacion
-                                                    Snackbar.make(v, "Error al enviar la petición de contacto",
-                                                            Snackbar.LENGTH_LONG).show();
-                                                }
-                                            });
-                                        }
-                                        else {
-                                            Snackbar.make(v, "Ya has enviado una petición de contacto al usuario",
-                                                    Snackbar.LENGTH_LONG).show();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onCancelled(DatabaseError databaseError) {
-
-                                    }
-                                });
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-                }
-                else {
-                    Snackbar.make(v, "No se puede enviar una peticion a este contacto",
-                            Snackbar.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+    public void agregarContacto(String usuarioId, String contactoId) {
+        presenter.agregarContacto(usuario.getId(), contacto.getId());
     }
 
 
@@ -215,5 +101,9 @@ public class InfoUsuarioActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        Snackbar.make(tvApodo, mensaje, Snackbar.LENGTH_LONG).show();
     }
 }
