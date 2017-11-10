@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Usuario;
+import com.example.user.proxychat.presenter.PerfilPresenter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -29,12 +30,13 @@ import java.io.InputStream;
 /**
  * PerfilActivity: actividad que muestra el perfil del usuario
  */
-public class PerfilActivity extends AppCompatActivity {
+public class PerfilActivity extends AppCompatActivity implements PerfilPresenter.PerfilView{
 
     private int PICK_IMAGE_REQUEST = 1;
     private ImageView ivFotoPerfil;
     private TextView tvApodoPerfil;
     private Usuario usuario;
+    private PerfilPresenter presenter;
 
 
     @Override
@@ -50,20 +52,24 @@ public class PerfilActivity extends AppCompatActivity {
         //Inicializa el ImageView que contiene la imagen de perfil del usuario
         ivFotoPerfil = (ImageView)findViewById(R.id.ivFotoPerfil);
 
+        presenter = new PerfilPresenter(this);
+
         //Obtiene del Bundle contenido en el Intent el objeto Usuario con los datos del usuario
         usuario = (Usuario)getIntent().getExtras().getSerializable("usuario");
         //Configura el texto del TextView con el apodo del usuario
         tvApodoPerfil.setText(usuario.getApodo());
 
-        //Crea un obtiene Uri con la URL de la imagen de perfil del usuario
-        Uri uri = Uri.parse(usuario.getImagenUrl());
+        presenter.cargarFotoPerfil(Uri.parse(usuario.getImagenUrl()));
+
+    }
+
+    public void cargarFotoPerfil(Uri imagenUrl) {
 
         //Carga la imagen del usuario en el ImageView a partir de la URL, utilizando la libreria Glide
         Glide.with(getApplicationContext())
-                .load(uri)
+                .load(imagenUrl)
                 .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
                 .into(ivFotoPerfil);
-
     }
 
     /**
@@ -103,67 +109,19 @@ public class PerfilActivity extends AppCompatActivity {
                 //Inicializa el InputStream utilizando como fuente de datos la URI de la imagen
                 inputStream = getContentResolver().openInputStream(uri);
 
-                //Obtiene una referencia al almacen de Firebase
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                //Situa la referencia en la ruta donde se almacena la imagen de perfil del usuario
-                storageReference = storageReference.child("usuarios").child(usuario.getId()).child("perfil.png");
-                //Crea un objeto UploadTask, utilizado para subir la imagen al almacen de Firebase
-                UploadTask uploadTask;
-                //Inicializa el UploadTask haciendo una llamada al metodo putStream del objeto StorageReference
-                //y pasandole por parametro el InputStream
-                uploadTask = storageReference.putStream(inputStream);
-                //Añade escuchadores al UploadTask que recibiran los eventos de operacion exitosa u operacion
-                //fallida
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    /**
-                     * onFailure: se ejecuta si la operacion fallo
-                     * @param e
-                     */
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //Muestra un Snackbar informando al usuaario del error
-                        Snackbar.make(ivFotoPerfil,"Error al subir la imagen al servidor: "
-                                        + e.getMessage(),
-                                Snackbar.LENGTH_LONG).show();
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    /**
-                     * onSuccess: se ejecuta si la operacion se realizo exitosamente
-                     * @param taskSnapshot
-                     */
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                        //Etiqueta para evitar que el IDE se queje de que el metodo getDownloadUrl
-                        //solo deberia ser visible por tests o en un ambito private
-                        @SuppressWarnings("VisibleForTests")
-                        //Obtiene del TaskSnapShot la URI de la imagen
-                                Uri uri = taskSnapshot.getDownloadUrl();
-                        //Establece la URL de la imagen de usuario en el objeto Usuario con la nueva URL
-                        usuario.setImagenUrl(uri.toString());
-
-                        //Obtiene una referencia a la base de datos
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-                        //Almacena en la base de datos el objeto Usuario actualizado
-                        databaseReference.child("usuarios").child(usuario.getId()).setValue(usuario);
-
-                        //Carga la nueva imagen en el ImageView
-                        Glide.with(getApplicationContext())
-                                .load(uri)
-                                .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
-                                .into(ivFotoPerfil);
-                    }
-                });
+                presenter.subirImagen(inputStream, usuario);
             } catch (FileNotFoundException e) {
-                //Si no se encontro la imagen, se muestra un Snackbar informando del error al usuario
-                //y termina la ejecucion del metodo mediante return
-                Snackbar.make(ivFotoPerfil,"No se ha podido cargar la imagen: "
-                        + e.getMessage(),
-                        Snackbar.LENGTH_LONG).show();
+                presenter.mostrarMensaje("No se ha podido cargar la imagen: "
+                        + e.getMessage());
 
             }
 
         }
+    }
+
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        Snackbar.make(tvApodoPerfil, mensaje, Snackbar.LENGTH_LONG).show();
     }
 
     /**
