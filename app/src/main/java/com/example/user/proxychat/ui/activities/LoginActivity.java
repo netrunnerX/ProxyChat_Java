@@ -2,7 +2,6 @@ package com.example.user.proxychat.ui.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,31 +12,18 @@ import android.widget.EditText;
 
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Usuario;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.iid.FirebaseInstanceId;
+import com.example.user.proxychat.presenter.LoginPresenter;
 
 /**
  * LoginActivity: Es la actividad que se lanza al ejecutar la aplicacion.
  * Muestra un formulario de login y realiza el inicio de sesion en el servidor
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginPresenter.LoginView{
 
     private EditText etUsuario;
     private EditText etPassword;
-    private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
-    private DatabaseReference databaseReference;
-    private String userId;
-    private String token;
+    private LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,70 +35,9 @@ public class LoginActivity extends AppCompatActivity {
         //Inicializa el campo de texto de la contraseña
         etPassword = (EditText) findViewById(R.id.etPassword);
 
-        //Crea un ProgressDialog, este se utiliza para mostrar un dialogo que informa al usuario de
-        //que se esta realizando un proceso
-        progressDialog = new ProgressDialog(this);
-        //Establece el mensaje del ProgressDialog
-        progressDialog.setMessage("Iniciando sesion, espere");
-        //Establece el ProgressDialog como modal
-        progressDialog.setCancelable(false);
+        presenter = new LoginPresenter(this);
 
-        //Obtiene una instancia de FirebaseAuth, utilizada para gestionar la autenticacion en el servidor
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        //si getCurrentUser no es null, significa que el usuario ya esta logueado
-        if (firebaseAuth.getCurrentUser() != null) {
-            //Muestra el ProgressDialog
-            progressDialog.show();
-
-            //Obtiene un Objeto FirebaseUser que contiene los datos del usuario
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            //Obtiene el id del usuario
-            userId = user.getUid();
-
-            //Obtiene una referencia a la base de datos
-            databaseReference = FirebaseDatabase.getInstance().getReference();
-
-            //Obtiene el token del dispositivo
-            token = FirebaseInstanceId.getInstance().getToken();
-
-            //Crea una consulta a la base de datos para obtener el objeto Usuario del usuario
-            databaseReference.child("usuarios").child(userId)
-                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    //Obtiene el objeto Usuario con los datos del usuario a partir del DataSnapshot
-                    Usuario usuario = dataSnapshot.getValue(Usuario.class);
-
-                    //Almacena el token del dispositivo en la base de datos
-                    databaseReference.child("tokens").child(userId).child(token).setValue(true);
-                    //Crea un bundle
-                    Bundle bundle = new Bundle();
-                    //Añade al bundle el objeto Usuario del usuario
-                    bundle.putSerializable("usuario", usuario);
-
-                    //Crea un Intent utilizado para iniciar la actividad principal
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-
-                    //Añade el bundle al Intent
-                    intent.putExtras(bundle);
-
-                    //Cierra esta actividad
-                    finish();
-
-                    //inicia la nueva actividad
-                    startActivity(intent);
-
-                    //Cierra el ProgressDialog
-                    progressDialog.dismiss();
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
+        setProgressDialog();
 
         AppCompatButton botonLogin = (AppCompatButton) findViewById(R.id.botonLogin);
         botonLogin.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        isUsuarioLogueado();
+
+    }
+
+    public void isUsuarioLogueado() {
+        presenter.isUsuarioLogueado();
     }
 
     /**
@@ -149,78 +80,9 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         //Muestra el ProgressDialog
-        progressDialog.show();
+        presenter.mostrarProgressDialog();
 
-        //singInWithEmailAndPassword es llamado para realizar el inicio de sesion en el servidor
-        //utilizando como metodo de autenticacion email y contraseña
-        firebaseAuth.signInWithEmailAndPassword(etUsuario.getText().toString(), etPassword.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-
-                    /**
-                     * onComplete: se ejecuta cuando la operacion de inicio de sesion se ha completado.
-                     * El inicio de sesion puede haber sido un exito o haber fallado
-                     * @param task
-                     */
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        //Si la operacion fue exitosa
-                        if (task.isSuccessful()) {
-                            //Obtiene el usuario FirebaseUser
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            //Obtiene el id de usuario
-                            userId = user.getUid();
-
-                            //Obtiene el token del dispositivo
-                            token = FirebaseInstanceId.getInstance().getToken();
-
-                            //Obtiene una referencia a la base de datos
-                            databaseReference = FirebaseDatabase.getInstance().getReference();
-
-
-                            databaseReference.child("usuarios").child(userId)
-                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Usuario usuario = dataSnapshot.getValue(Usuario.class);
-
-                                    //Crea una consulta a la base de datos para obtener el objeto Usuario del usuario
-                                    databaseReference.child("tokens").child(userId).child(token).setValue(true);
-                                    //Crea un bundle
-                                    Bundle bundle = new Bundle();
-                                    //Añade el objeto Usuario al bundle
-                                    bundle.putSerializable("usuario", usuario);
-
-                                    //Crea un Intent utilizado para iniciar la actividad principal
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    //Añade el bundle al intent
-                                    intent.putExtras(bundle);
-
-                                    //Cierra esta actividad
-                                    finish();
-                                    //Inicia la nueva actividad
-                                    startActivity(intent);
-                                    //Cierra el ProgressDialog
-                                    progressDialog.dismiss();
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            });
-
-                        }
-                        //Por el contrario, si el inicio de sesion fue fallido
-                        else {
-                            //Cierra el progressDialog
-                            progressDialog.dismiss();
-                            //Muestra un Snackbar al usuario informando del error
-                            Snackbar.make(v, task.getException().getMessage(),
-                                    Snackbar.LENGTH_LONG).show();
-                        }
-                    }
-                });
+        presenter.login(etUsuario.getText().toString(), etPassword.getText().toString());
     }
 
     /**
@@ -250,5 +112,42 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == 10 && resultCode == RESULT_OK)
             //Se cierra esta actividad
             finish();
+    }
+
+    public void mostrarProgressDialog() {
+        progressDialog.show();
+    }
+
+    public void ocultarProgressDialog() {
+        progressDialog.dismiss();
+    }
+
+    public void setProgressDialog() {
+        if (progressDialog != null)
+            //Crea un ProgressDialog, este se utiliza para mostrar un dialogo que informa al usuario de
+            //que se esta realizando un proceso
+            progressDialog = new ProgressDialog(this);
+        //Establece el mensaje del ProgressDialog
+        progressDialog.setMessage("Iniciando sesion, espere");
+        //Establece el ProgressDialog como modal
+        progressDialog.setCancelable(false);
+    }
+
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        Snackbar.make(etUsuario, mensaje, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void cargarMainActivity(Usuario usuario) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("usuario", usuario);
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtras(bundle);
+
+        startActivity(i);
+        presenter.ocultarProgressDialog();
+        finish();
+
     }
 }
