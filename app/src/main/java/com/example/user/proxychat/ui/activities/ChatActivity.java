@@ -1,6 +1,5 @@
 package com.example.user.proxychat.ui.activities;
 
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,35 +13,23 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.user.proxychat.R;
+import com.example.user.proxychat.presenter.ChatPresenter;
 import com.example.user.proxychat.ui.adaptadores.MensajeAdaptador;
-import com.example.user.proxychat.data.Mensaje;
 import com.example.user.proxychat.data.Usuario;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  *ChatActivity: actividad que muestra el chat entre contactos
  */
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends AppCompatActivity implements ChatPresenter.ChatView {
     private RecyclerView recyclerView;
     private EditText etMensaje;
     private ImageButton botonEnviar;
     private Usuario contacto;
     private Usuario usuario;
-    private List<Mensaje> mensajes;
-    private DatabaseReference databaseReference;
     private MensajeAdaptador mensajesAdaptador;
+    private ChatPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +48,7 @@ public class ChatActivity extends AppCompatActivity {
         //Obtiene el objecto Usuario del usuario
         usuario = (Usuario)bundle.getSerializable("usuario");
 
-        //Inicializa la lista de mensajes
-        mensajes = new ArrayList<>();
-        //Obtiene una referencia a la base de datos
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        presenter = new ChatPresenter(this);
 
         //Inicializa el RecyclerView a traves del cual se muestra la lista de mensajes
         recyclerView = (RecyclerView)findViewById(R.id.recyclerview);
@@ -78,12 +62,12 @@ public class ChatActivity extends AppCompatActivity {
         //Configura el RecyclerView con el LinearLayoutManager
         recyclerView.setLayoutManager(linearLayoutManager);
         //Crea un adaptador de mensajes
-        mensajesAdaptador = new MensajeAdaptador(mensajes);
+        mensajesAdaptador = new MensajeAdaptador(presenter.getMensajesList());
         //Configura el RecyclerView con el adaptador de mensajes
         recyclerView.setAdapter(mensajesAdaptador);
 
         //Inicia la escucha de mensajes
-        iniciarEscuchadorMensajes();
+        obtenerMensajes();
 
         //Obtiene una intancia del campo de texto
         etMensaje = (EditText)findViewById(R.id.etMensaje);
@@ -102,7 +86,7 @@ public class ChatActivity extends AppCompatActivity {
         });
 
         habilitarComponentes(false);
-        iniciarEscuchadoresBloqueado();
+        comprobarBloqueado(usuario.getId(), contacto.getId());
 
     }
 
@@ -111,148 +95,32 @@ public class ChatActivity extends AppCompatActivity {
      * @param mensaje texto del mensaje
      */
     public void enviarMensaje(String mensaje) {
+        presenter.enviarMensaje(usuario.getApodo(),
+                usuario.getId(),
+                contacto.getApodo(),
+                contacto.getId(), mensaje);
 
-        //Crea un SimpleDateFormat utilizado para dar formato a la fecha del mensaje
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-
-        //Se introducen en listas el apodo y el id del contacto para incluirlos en el constructor
-        //del nuevo mensaje
-        List<String> receptores = new ArrayList<>();
-        receptores.add(contacto.getApodo());
-        List<String> idReceptores = new ArrayList<>();
-        idReceptores.add(contacto.getId());
-
-        //Crea un objeto mensaje
-        Mensaje mensajeTexto = new Mensaje(usuario.getApodo(), usuario.getId(), receptores,
-                idReceptores, mensaje, 0, simpleDateFormat.format(new Date()));
-
-        //Almacena en la base de datos el mensaje
-        databaseReference.child("mensajes").child("usuarios")
-                .child(usuario.getId())
-                .child(contacto.getId()).push().setValue(mensajeTexto);
-
-        //Vacia el campo de texto
-        etMensaje.setText("");
-    }
-
-    /**
-     * setScrollBarMensajes: metodo encargado de desplazar la lista al final
-     */
-    public void setScrollBarMensajes() {
-        //Realiza scroll hasta el final de la lista del RecyclerView
-        recyclerView.scrollToPosition(mensajesAdaptador.getItemCount() - 1);
     }
 
 
     /**
-     * iniciarEscuchadorMensajes: metodo encargado de obtener los mensajes de la base de datos
+     * obtenerMensajes: metodo encargado de obtener los mensajes de la base de datos
      * a traves de un escuchador
      */
-    public void iniciarEscuchadorMensajes() {
-        //Establece un escuchador en la referencia de la base de datos donde se almacenan los mensajes
-        //entre usuarios, obtiene los ultimos 40 nodos (limitToLast(40))
-        databaseReference.child("mensajes").child("usuarios")
-                .child(usuario.getId())
-                .child(contacto.getId()).limitToLast(40).addChildEventListener(new ChildEventListener() {
-
-            /**
-             * onChildAdded: este metodo se ejecuta cuando un nuevo nodo hijo es agregado a la referencia
-             * de la base de datos (un nuevo mensaje). Este metodo tambien se ejecuta al crear el
-             * escuchador, obteniendo un resultado inicial.
-             * @param dataSnapshot
-             * @param s
-             */
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                //Obtiene el mensaje a partir del DataSnapShot
-                Mensaje mensajeTexto = dataSnapshot.getValue(Mensaje.class);
-                //Si el receptor del mensaje es el usuario
-                if (mensajeTexto.getIdReceptores().get(0).equals(usuario.getId()))
-                    //Establece el tipo de mensaje en 1 (mensaje entrante)
-                    mensajeTexto.setTipoMensaje(1);
-
-                //Añade el mensaje a la lista de mensajes
-                mensajes.add(mensajeTexto);
-                //Notifica al adaptador que el conjunto de datos ha cambiado, de forma que este
-                //se actualice
-                mensajesAdaptador.notifyDataSetChanged();
-                //Realiza scroll hasta el final de la lista en el RecyclerView
-                setScrollBarMensajes();
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    public void obtenerMensajes() {
+        presenter.obtenerMensajes(usuario.getId(), contacto.getId());
 
     }
 
-    public void iniciarEscuchadoresBloqueado() {
-        databaseReference.child("contactos")
-                .child("usuarios")
-                .child(usuario.getId())
-                .child("bloqueados")
-                .child(contacto.getId()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
-
-                        if (bBloqueado == null) {
-                            databaseReference.child("contactos")
-                                    .child("usuarios")
-                                    .child(contacto.getId())
-                                    .child("bloqueados")
-                                    .child(usuario.getId()).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
-
-                                    if (bBloqueado == null)
-                                        habilitarComponentes(true);
-                                    else
-                                        habilitarComponentes(false);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-
-                                }
-                            });
-                        }
-                        else
-                            habilitarComponentes(false);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-        });
+    public void comprobarBloqueado(String usuarioId, String contactoId) {
+        presenter.comprobarBloqueado(usuarioId, contactoId);
 
     }
 
-    public void habilitarComponentes(boolean estado) {
-        etMensaje.setEnabled(estado);
-        botonEnviar.setEnabled(estado);
+    public void bloquear(String usuarioId, String contactoId) {
+        presenter.bloquear(usuarioId, contactoId);
     }
+
 
     /**
      * onCreateOptionsMenu: este metodo se redefine para crear un menu de opciones
@@ -283,52 +151,38 @@ public class ChatActivity extends AppCompatActivity {
                 return true;
 
             case R.id.action_bloquear:
-                databaseReference.child("contactos")
-                        .child("usuarios")
-                        .child(usuario.getId())
-                        .child("bloqueados")
-                        .child(contacto.getId()).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                Boolean bBloqueado = dataSnapshot.getValue(Boolean.class);
-
-                                if (bBloqueado == null) {
-                                    databaseReference.child("contactos")
-                                            .child("usuarios")
-                                            .child(usuario.getId())
-                                            .child("bloqueados")
-                                            .child(contacto.getId())
-                                            .setValue(true).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    Snackbar.make(etMensaje,
-                                                            "Contacto bloqueado",
-                                                            Snackbar.LENGTH_LONG).show();
-                                                }
-                                            }).addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Snackbar.make(etMensaje,
-                                                            "No se ha podido bloquear al contacto",
-                                                            Snackbar.LENGTH_LONG).show();
-                                                }
-                                    });
-                                }
-                                else {
-                                    Snackbar.make(etMensaje,
-                                            "El contacto ya se encuentra bloqueado",
-                                            Snackbar.LENGTH_LONG).show();
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-
-                            }
-                });
+                bloquear(usuario.getId(), contacto.getId());
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    /**
+     * setScrollBarMensajes: metodo encargado de desplazar la lista al final
+     */
+    public void setScrollBarMensajes() {
+        //Realiza scroll hasta el final de la lista del RecyclerView
+        recyclerView.scrollToPosition(mensajesAdaptador.getItemCount() - 1);
+    }
+
+    public void habilitarComponentes(boolean estado) {
+        etMensaje.setEnabled(estado);
+        botonEnviar.setEnabled(estado);
+    }
+
+    @Override
+    public void mostrarMensaje(String mensaje) {
+        Snackbar.make(etMensaje, mensaje, Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void limpiarTexto() {
+        etMensaje.setText("");
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        mensajesAdaptador.notifyDataSetChanged();
     }
 }

@@ -158,7 +158,7 @@ public class MeetingPointChatFragment extends Fragment {
 
 
     /**
-     * iniciarEscuchadorMensajes: metodo encargado de obtener los mensajes de la base de datos
+     * obtenerMensajes: metodo encargado de obtener los mensajes de la base de datos
      * a traves de un escuchador
      */
     public void iniciarEscuchadorMensajes() {
