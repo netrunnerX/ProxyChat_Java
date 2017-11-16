@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Usuario;
+import com.example.user.proxychat.presenter.InvitacionesViewHolderPresenter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -31,19 +32,19 @@ import java.util.List;
  * Created by netx on 7/20/17.
  */
 
-public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptador.InvitacionViewHolder>{
+public class InvitacionesAdaptador extends RecyclerView.Adapter<InvitacionesAdaptador.InvitacionViewHolder>{
 
     private List<String> invitaciones;
     private Context context;
-    private String idUsuario;
+    private String usuarioId;
 
     /**
      * Constructor por defecto
      * @param invitaciones lista de invitaciones
      */
-    public InvitacionAdaptador(Context context, String idUsuario, List<String> invitaciones){
+    public InvitacionesAdaptador(Context context, String usuarioId, List<String> invitaciones){
         this.context = context;
-        this.idUsuario = idUsuario;
+        this.usuarioId = usuarioId;
         this.invitaciones = invitaciones;
     }
 
@@ -55,9 +56,9 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
      * @return
      */
     @Override
-    public InvitacionAdaptador.InvitacionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public InvitacionesAdaptador.InvitacionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_invitaciones, parent, false);
-        return new InvitacionAdaptador.InvitacionViewHolder(v);
+        return new InvitacionesAdaptador.InvitacionViewHolder(v);
     }
 
     /**
@@ -67,61 +68,14 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
      * @param position posicion en el RecyclerView donde mostrara el item
      */
     @Override
-    public void onBindViewHolder(final InvitacionAdaptador.InvitacionViewHolder holder, final int position) {
+    public void onBindViewHolder(final InvitacionesAdaptador.InvitacionViewHolder holder, final int position) {
 
-        final String idContacto = invitaciones.get(position);
-
-        final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        databaseReference.child("usuarios").child(idContacto).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuario contacto = dataSnapshot.getValue(Usuario.class);
-
-                holder.tvNombre.setText(contacto.getApodo());
-
-                Uri fotoUri = Uri.parse(contacto.getImagenUrl());
-
-                Glide.with(context.getApplicationContext())
-                        .load(fotoUri)
-                        .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
-                        .into(holder.fotoPerfil);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        holder.presenter.obtenerContacto(invitaciones.get(position));
 
         holder.btAceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                databaseReference.child("contactos")
-                        .child("usuarios")
-                        .child(idUsuario)
-                        .child("usuarios")
-                        .child(invitaciones.get(position)).setValue(true)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Snackbar.make(view,
-                                        "Contacto agregado a la lista de contactos",
-                                        Snackbar.LENGTH_LONG).show();
-
-                                databaseReference.child("invitaciones")
-                                        .child("usuarios")
-                                        .child(idUsuario)
-                                        .child(invitaciones.get(position)).removeValue();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(view,
-                                        "No se ha podido agregar el contacto",
-                                        Snackbar.LENGTH_LONG).show();
-                            }
-                });
+                holder.presenter.aceptarInvitacion(usuarioId, invitaciones.get(position));
 
             }
         });
@@ -149,13 +103,15 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
     /**
      * MensajesViewHolder: clase que define un ViewHolder personalizado de mensajes
      */
-    static class InvitacionViewHolder extends RecyclerView.ViewHolder {
+     class InvitacionViewHolder extends RecyclerView.ViewHolder
+            implements InvitacionesViewHolderPresenter.InvitacionesViewHolderView {
 
         CardView cardView;
         TextView tvNombre;
         ImageView fotoPerfil;
         ImageButton btAceptar;
         ImageButton btCancelar;
+        InvitacionesViewHolderPresenter presenter;
 
         /**
          * Constructor parametrizado
@@ -174,6 +130,25 @@ public class InvitacionAdaptador extends RecyclerView.Adapter<InvitacionAdaptado
             btAceptar = (ImageButton) v.findViewById(R.id.btAceptar);
             btCancelar = (ImageButton) v.findViewById(R.id.btCancelar);
 
+            presenter = new InvitacionesViewHolderPresenter(this);
+
+        }
+
+        @Override
+        public void mostrarDatosContacto(Usuario contacto) {
+            tvNombre.setText(contacto.getApodo());
+
+            Uri fotoUri = Uri.parse(contacto.getImagenUrl());
+
+            Glide.with(context.getApplicationContext())
+                    .load(fotoUri)
+                    .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
+                    .into(fotoPerfil);
+        }
+
+        @Override
+        public void mostrarMensaje(String mensaje) {
+            Snackbar.make(itemView, mensaje, Snackbar.LENGTH_LONG).show();
         }
     }
 }

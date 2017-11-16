@@ -12,21 +12,13 @@ import android.widget.TextView;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.presenter.InvitacionesPresenter;
 import com.example.user.proxychat.ui.activities.MainActivity;
-import com.example.user.proxychat.ui.adaptadores.InvitacionAdaptador;
+import com.example.user.proxychat.ui.adaptadores.InvitacionesAdaptador;
 import com.example.user.proxychat.data.Usuario;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class InvitacionesFragment extends Fragment implements InvitacionesPresenter.InvitacionesView {
     private RecyclerView recyclerView;
 
-    private InvitacionAdaptador invitacionAdaptador;
+    private InvitacionesAdaptador invitacionesAdaptador;
     private Usuario usuario;
     private TextView tvNumeroInvitaciones;
 
@@ -64,7 +56,7 @@ public class InvitacionesFragment extends Fragment implements InvitacionesPresen
         presenter = new InvitacionesPresenter(this);
 
         //Crea un adaptador de invitaciones
-        invitacionAdaptador = new InvitacionAdaptador(getContext(), usuario.getId(), presenter.getInvitacionesList());
+        invitacionesAdaptador = new InvitacionesAdaptador(getContext(), usuario.getId(), presenter.getInvitacionesList());
 
         //Inicializa el RecyclerView
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewInvitaciones);
@@ -74,7 +66,7 @@ public class InvitacionesFragment extends Fragment implements InvitacionesPresen
         //Configura el RecyclerView con el LinearLayoutManager
         recyclerView.setLayoutManager(linearLayoutManager);
         //Configura el RecyclerView con el adaptador de invitaciones
-        recyclerView.setAdapter(invitacionAdaptador);
+        recyclerView.setAdapter(invitacionesAdaptador);
 
         presenter.obtenerInvitaciones(usuario.getId());
 
@@ -82,7 +74,7 @@ public class InvitacionesFragment extends Fragment implements InvitacionesPresen
 
     @Override
     public void notifyDataSetChanged() {
-        invitacionAdaptador.notifyDataSetChanged();
+        invitacionesAdaptador.notifyDataSetChanged();
     }
 
     @Override
