@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.user.proxychat.R;
+import com.example.user.proxychat.presenter.InvitacionesPresenter;
 import com.example.user.proxychat.ui.activities.MainActivity;
 import com.example.user.proxychat.ui.adaptadores.InvitacionAdaptador;
 import com.example.user.proxychat.data.Usuario;
@@ -22,14 +23,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvitacionesFragment extends Fragment {
+public class InvitacionesFragment extends Fragment implements InvitacionesPresenter.InvitacionesView {
     private RecyclerView recyclerView;
-    private DatabaseReference databaseReference;
 
     private InvitacionAdaptador invitacionAdaptador;
-    private List<String> invitaciones;
     private Usuario usuario;
     private TextView tvNumeroInvitaciones;
+
+    private InvitacionesPresenter presenter;
 
     /**
      * onCreateView: metodo que es llamado a la hora de crear la vista del Fragment
@@ -58,16 +59,12 @@ public class InvitacionesFragment extends Fragment {
         //Obtiene un objeto Usuario con los datos del usuario contenido en la actividad principal
         usuario = ((MainActivity)getActivity()).getUsuario();
 
-        //Obtiene una referencia a la base de datos
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
-        //Inicializa la lista de invitaciones
-        invitaciones = new ArrayList<>();
-
         tvNumeroInvitaciones = (TextView) getActivity().findViewById(R.id.tvNumeroInvitaciones);
 
+        presenter = new InvitacionesPresenter(this);
+
         //Crea un adaptador de invitaciones
-        invitacionAdaptador = new InvitacionAdaptador(getContext(), usuario.getId(), invitaciones);
+        invitacionAdaptador = new InvitacionAdaptador(getContext(), usuario.getId(), presenter.getInvitacionesList());
 
         //Inicializa el RecyclerView
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerviewInvitaciones);
@@ -79,44 +76,17 @@ public class InvitacionesFragment extends Fragment {
         //Configura el RecyclerView con el adaptador de invitaciones
         recyclerView.setAdapter(invitacionAdaptador);
 
-        iniciarEscuchadorInvitaciones();
+        presenter.obtenerInvitaciones(usuario.getId());
 
     }
 
-    public void iniciarEscuchadorInvitaciones() {
+    @Override
+    public void notifyDataSetChanged() {
+        invitacionAdaptador.notifyDataSetChanged();
+    }
 
-        databaseReference.child("invitaciones")
-                .child("usuarios")
-                .child(usuario.getId())
-                .addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                invitaciones.add(dataSnapshot.getKey());
-                invitacionAdaptador.notifyDataSetChanged();
-                tvNumeroInvitaciones.setText("Invitaciones: " + invitaciones.size());
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                invitaciones.remove(dataSnapshot.getKey());
-                invitacionAdaptador.notifyDataSetChanged();
-                tvNumeroInvitaciones.setText("Invitaciones: " + invitaciones.size());
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    @Override
+    public void actualizarNumeroInvitaciones(int numero) {
+        tvNumeroInvitaciones.setText("Invitaciones: " + numero);
     }
 }
