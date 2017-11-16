@@ -12,16 +12,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.user.proxychat.presenter.ConversacionesViewHolderPresenter;
 import com.example.user.proxychat.ui.interfaces.OnItemClickListener;
 import com.example.user.proxychat.ui.interfaces.OnItemLongClickListener;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.Conversacion;
-import com.example.user.proxychat.data.Usuario;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -84,38 +79,7 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
         //Configura el TextView del mensaje con el ultimo mensaje de la conversacion
         holder.tvMensaje.setText(conversaciones.get(position).getUltimoMensaje());
 
-        //Obtiene una referencia a la base de datos
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        //Realiza una consulta a la base de datos para obtener la URL de la imagen del contacto
-        //de la conversacion
-        databaseReference.child("usuarios").child(conversaciones.get(position).getIdContacto())
-                .addValueEventListener(new ValueEventListener() {
-                    /**
-                     * onDataChange: este metodo es llamado cuando cambian los datos en la base de datos,
-                     * ademas de para obtener un resultado inicial
-                     * @param dataSnapshot
-                     */
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //Obtiene un objeto Usuario con los datos del Contacto
-                        Usuario contacto = dataSnapshot.getValue(Usuario.class);
-                        //Instancia un objeto Uri con la URL de la imagen del contacto
-                        Uri fotoUri = Uri.parse(contacto.getImagenUrl());
-
-                        //Descarga la imagen y la añade al ImageView de la imagen del contacto
-                        //utilizando la libreria Glide
-                        Glide.with(context.getApplicationContext())
-                                .load(fotoUri)
-                                .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
-                                .into(holder.ivFotoContacto);
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+        holder.presenter.consultarImagenContacto(conversaciones.get(position).getIdContacto());
 
     }
 
@@ -132,12 +96,14 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
     /**
      * ConversacionesViewHolder: clase que define un ViewHolder personalizado de conversaciones
      */
-    class ConversacionesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    class ConversacionesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
+            View.OnLongClickListener, ConversacionesViewHolderPresenter.ConversacionesViewHolderView {
 
         CardView cardView;
         TextView tvNombre;
         TextView tvMensaje;
         ImageView ivFotoContacto;
+        ConversacionesViewHolderPresenter presenter;
 
         /**
          * Constructor parametrizado
@@ -154,6 +120,8 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
             tvMensaje = (TextView) v.findViewById(R.id.tvUltimoMensaje);
             //Instancia el ImageView de la imagen de contacto
             ivFotoContacto = (ImageView) v.findViewById(R.id.ivFotoConv);
+
+            presenter = new ConversacionesViewHolderPresenter(this);
 
             //Configura un ClickListener para la vista
             v.setOnClickListener(this);
@@ -187,6 +155,19 @@ public class ConversacionesAdaptador extends RecyclerView.Adapter<Conversaciones
                 return longClickListener.onLongClick(v, getAdapterPosition());
             }
             return false;
+        }
+
+        @Override
+        public void cargarImagenContacto(String imagenUrl) {
+            //Instancia un objeto Uri con la URL de la imagen del contacto
+            Uri fotoUri = Uri.parse(imagenUrl);
+
+            //Descarga la imagen y la añade al ImageView de la imagen del contacto
+            //utilizando la libreria Glide
+            Glide.with(context.getApplicationContext())
+                    .load(fotoUri)
+                    .apply(new RequestOptions().placeholder(R.drawable.iconouser).centerCrop())
+                    .into(ivFotoContacto);
         }
     }
 
