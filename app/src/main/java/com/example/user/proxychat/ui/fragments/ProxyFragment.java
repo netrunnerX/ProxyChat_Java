@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import com.example.user.proxychat.R;
+import com.example.user.proxychat.data.repository.UsuariosCercanosRepository;
 import com.example.user.proxychat.ui.activities.MainActivity;
 import com.example.user.proxychat.ui.adaptadores.MensajeAdaptador;
 import com.example.user.proxychat.data.Mensaje;
@@ -134,10 +135,10 @@ public class ProxyFragment extends Fragment {
      */
     public void enviarMensajeProxy(String textoMensaje) {
 
-        //Obtiene la lista de usuarios cercanos contenido en el MapFragment
+        //Obtiene la lista de usuarios cercanos a partir del repositorio de usuarios cercanos
         //Como solo se necesitan las claves, se obtienen llamando al metodo keySet del Map
         //de usuarios cercanos
-        usuariosCercanos = new ArrayList<>(((MainActivity)getActivity()).getMapFragment().getUsuariosCercanosPerfil().keySet());
+        usuariosCercanos = new ArrayList<>(UsuariosCercanosRepository.getInstance().getUsuariosCercanosPerfil().keySet());
 
         //Si la lista no es null
         if (usuariosCercanos != null) {

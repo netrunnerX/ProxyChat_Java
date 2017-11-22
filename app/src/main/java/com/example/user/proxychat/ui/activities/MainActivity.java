@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.user.proxychat.servicios.LocationService;
 import com.example.user.proxychat.ui.fragments.ConversacionesFragment;
 import com.example.user.proxychat.ui.fragments.InvitacionesFragment;
 import com.example.user.proxychat.ui.fragments.MapFragment;
@@ -89,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_rss_feed);
         tabLayout.getTabAt(3).setIcon(R.drawable.ic_message);
         tabLayout.getTabAt(4).setIcon(R.drawable.ic_action_add);
+
+        //Al llamar a getInstance de LocationService, iniciamos el servicio si la instancia no fue
+        //creada previamente
+        LocationService.getInstance(getApplicationContext());
 
     }
 

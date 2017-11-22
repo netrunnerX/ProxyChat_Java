@@ -12,6 +12,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.user.proxychat.R;
 import com.example.user.proxychat.data.MeetingPoint;
 import com.example.user.proxychat.data.Usuario;
+import com.example.user.proxychat.data.repository.MeetingPointsCercanosRepository;
+import com.example.user.proxychat.data.repository.UsuariosCercanosRepository;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
@@ -30,25 +32,21 @@ public class InfoWindowAdaptador implements GoogleMap.InfoWindowAdapter {
     private Marker ultimoMarker;
     private View viewUsuario;
     private View viewMeetingPoint;
+    private UsuariosCercanosRepository usuariosCercanosRepository;
+    private MeetingPointsCercanosRepository meetingPointsCercanosRepository;
 
-    private Map<String, Usuario> usuariosCercanosPerfil;
-    private Map<String, MeetingPoint> mPointsCercanosPerfil;
     private Context context;
 
     /**
      * Constructor parametrizado
      * @param context contexto
      * @param inflater objeto Inflater utilizado para cargar el layout
-     * @param usuariosCercanosPerfil map de usuarios cercanos
-     * @param mPointsCercanosPerfil map de puntos de encuentro cercanos
      */
-    public InfoWindowAdaptador(Context context, LayoutInflater inflater,
-                               Map<String, Usuario> usuariosCercanosPerfil,
-                               Map<String, MeetingPoint> mPointsCercanosPerfil) {
+    public InfoWindowAdaptador(Context context, LayoutInflater inflater) {
         this.context = context;
         this.inflater = inflater;
-        this.usuariosCercanosPerfil = usuariosCercanosPerfil;
-        this.mPointsCercanosPerfil = mPointsCercanosPerfil;
+        usuariosCercanosRepository = UsuariosCercanosRepository.getInstance();
+        meetingPointsCercanosRepository = MeetingPointsCercanosRepository.getInstance();
     }
 
     /**
@@ -91,8 +89,9 @@ public class InfoWindowAdaptador implements GoogleMap.InfoWindowAdapter {
                 //Instancia el TextView que muestra el nombre del usuario
                 TextView tvApodo = (TextView)viewUsuario.findViewById(R.id.tvApodoPerfilMapa);
 
-                //Obtiene el usuario del mapa de usuarios cercanos
-                Usuario usuarioProxy = usuariosCercanosPerfil.get(tag.substring(2));
+                //Obtiene el usuario del repositorio de usuarios cercanos
+                Usuario usuarioProxy = usuariosCercanosRepository.getUsuarioPerfil(tag.substring(2));
+
                 //Establece el texto del TextView con el nombre del usuario
                 tvApodo.setText(usuarioProxy.getApodo());
 
@@ -123,8 +122,8 @@ public class InfoWindowAdaptador implements GoogleMap.InfoWindowAdapter {
             //Instancia el TextView que muestra la descripcion del punto de encuentro
             TextView descripcion = (TextView) viewMeetingPoint.findViewById(R.id.tvDescripcion);
 
-            //Obtiene el objeto MeetingPoint del mapa de puntos de encuentros cercanos
-            MeetingPoint meetingPoint = mPointsCercanosPerfil.get(tag.substring(2));
+            //Obtiene el objeto MeetingPoint del repositorio de puntos de encuentros cercanos
+            MeetingPoint meetingPoint = meetingPointsCercanosRepository.getMeetingPointPerfil(tag.substring(2));
 
             //Establece el texto del TextView nombrePunto con el nombre del punto de encuentro
             nombrePunto.setText(meetingPoint.getNombre());
